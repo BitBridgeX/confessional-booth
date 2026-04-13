@@ -1,5 +1,8 @@
 import Navigation from "@/components/Navigation";
 import Link from "next/link";
+import CookieMamiAvatar from "@/components/CookieMamiAvatar";
+import EmailCapture from "@/components/EmailCapture";
+import SocialLinks from "@/components/SocialLinks";
 
 const MERCH_CATEGORIES = [
   {
@@ -77,7 +80,7 @@ export default function Home() {
           </div>
 
           <div className="relative max-w-5xl mx-auto text-center space-y-8">
-            <div className="text-8xl md:text-9xl animate-float">🍪</div>
+            <CookieMamiAvatar size={180} animated className="mx-auto drop-shadow-2xl" />
 
             <h1 className="font-playfair text-5xl md:text-8xl font-black leading-none">
               <span className="gradient-pink">Confessional</span>
@@ -397,6 +400,36 @@ export default function Home() {
 
         <div className="divider-sin max-w-4xl mx-auto" />
 
+        {/* ═══ LIVE STREAM CTA ═══ */}
+        <section className="py-16 px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="sin-card border-hot-pink/40 animate-glow flex flex-col md:flex-row items-center gap-8">
+              <div className="text-center md:text-left space-y-3">
+                <div className="flex items-center gap-3 justify-center md:justify-start">
+                  <span className="w-3 h-3 rounded-full bg-hot-pink animate-pulse-sin" />
+                  <span className="text-hot-pink font-black uppercase tracking-wider text-sm">Live Now</span>
+                </div>
+                <h3 className="font-playfair text-3xl">Cookie Mami&apos;s Absolution Stream</h3>
+                <p className="text-blush/70">Live confession readings, community prayer, and chaos.</p>
+              </div>
+              <div className="flex-shrink-0">
+                <Link href="/live" className="btn-sin-primary text-lg px-10">
+                  Join Live Stream 🔴
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ═══ EMAIL CAPTURE ═══ */}
+        <section className="py-12 px-4">
+          <div className="max-w-2xl mx-auto">
+            <EmailCapture />
+          </div>
+        </section>
+
+        <div className="divider-sin max-w-4xl mx-auto" />
+
         {/* ═══ FINAL CTA ═══ */}
         <section className="py-24 px-4">
           <div className="max-w-4xl mx-auto text-center space-y-8">
@@ -413,8 +446,8 @@ export default function Home() {
               <Link href="/merch" className="btn-sin-gold text-lg">
                 🛍️ Shop Merch
               </Link>
-              <Link href="/podcast" className="btn-sin-secondary text-lg">
-                🎙️ Listen
+              <Link href="/live" className="btn-sin-secondary text-lg">
+                🔴 Go Live
               </Link>
             </div>
           </div>
@@ -450,11 +483,11 @@ export default function Home() {
               </div>
               <div>
                 <h4 className="font-playfair text-lg text-sacred-gold mb-4">Connect</h4>
-                <div className="space-y-2 text-sm text-blush/60">
-                  <a href="#" className="block hover:text-hot-pink">Instagram</a>
-                  <a href="#" className="block hover:text-hot-pink">TikTok</a>
-                  <a href="#" className="block hover:text-hot-pink">Twitter</a>
-                  <a href="#" className="block hover:text-hot-pink">OnlyFans</a>
+                <SocialLinks size="md" className="justify-start" />
+                <div className="space-y-2 text-sm text-blush/60 mt-4">
+                  <Link href="/live" className="block hover:text-hot-pink">🔴 Live Stream</Link>
+                  <Link href="/membership" className="block hover:text-hot-pink">👑 Membership</Link>
+                  <Link href="/admin" className="block hover:text-hot-pink">⚙️ Admin</Link>
                 </div>
               </div>
             </div>
