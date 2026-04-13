@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Geist:wght@400;500;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gold: #D4AF37;
+  --gold-light: #E8D4A8;
+  --purple: #2D1B4E;
+  --purple-dark: #1a0f2e;
+  --cream: #F5F1E8;
+  --cream-dark: #E8DCC8;
+}
+
+* {
+  @apply box-border;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-sacred-purple-dark text-sacred-cream;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-playfair;
+}
+
+h1 {
+  @apply text-5xl md:text-6xl font-bold tracking-tight;
+}
+
+h2 {
+  @apply text-4xl md:text-5xl font-bold;
+}
+
+h3 {
+  @apply text-3xl md:text-4xl font-semibold;
+}
+
+/* Sacred card styling */
+.sacred-card {
+  @apply bg-sacred-purple border border-sacred-gold border-opacity-20 rounded-lg p-6 shadow-lg backdrop-blur-sm transition-all duration-300 hover:border-opacity-40 hover:shadow-xl;
+}
+
+.sacred-card-hover {
+  @apply hover:translate-y-[-2px];
+}
+
+/* Gold accent */
+.gold-text {
+  @apply text-sacred-gold;
+}
+
+.gold-border {
+  @apply border-sacred-gold;
+}
+
+.gold-gradient {
+  @apply bg-gradient-to-r from-sacred-gold to-sacred-gold-light;
+}
+
+/* Buttons */
+.btn-sacred {
+  @apply px-6 py-3 rounded-lg font-semibold transition-all duration-300 text-sacred-purple-dark;
+}
+
+.btn-sacred-primary {
+  @apply btn-sacred bg-sacred-gold hover:bg-sacred-gold-light;
+}
+
+.btn-sacred-secondary {
+  @apply btn-sacred border-2 border-sacred-gold text-sacred-gold hover:bg-sacred-gold hover:text-sacred-purple-dark;
+}
+
+/* Live indicator pulse */
+@keyframes pulse-sacred {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.pulse-sacred {
+  animation: pulse-sacred 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Gradient text */
+.gradient-text {
+  @apply bg-gradient-to-r from-sacred-gold via-sacred-gold-light to-sacred-gold bg-clip-text text-transparent;
+}
+
+/* Smooth transitions */
+.transition-sacred {
+  @apply transition-all duration-500 ease-out;
+}
+
+/* Focus states */
+input:focus,
+textarea:focus,
+select:focus {
+  @apply outline-none ring-2 ring-sacred-gold ring-offset-2 ring-offset-sacred-purple-dark;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  @apply w-3;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-sacred-purple;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-sacred-gold rounded-full hover:bg-sacred-gold-light;
+}
