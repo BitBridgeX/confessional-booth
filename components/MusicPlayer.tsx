@@ -56,7 +56,7 @@ export default function MusicPlayer({ track, autoPlay = false }: MusicPlayerProp
     <div className="sacred-card space-y-4">
       <audio
         ref={audioRef}
-        src={track.audio_url}
+        src={track.audio_url ?? undefined}
         onTimeUpdate={handleTimeUpdate}
         onLoadedMetadata={handleLoadedMetadata}
         autoPlay={autoPlay}
@@ -95,7 +95,7 @@ export default function MusicPlayer({ track, autoPlay = false }: MusicPlayerProp
           <span>{isPlaying ? "Pause" : "Play"}</span>
         </button>
         <a
-          href={track.audio_url}
+          href={track.audio_url ?? "#"}
           download
           className="btn-sacred-secondary px-4 py-3"
           title="Download"

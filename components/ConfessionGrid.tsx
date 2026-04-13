@@ -17,7 +17,7 @@ const CATEGORY_ICONS: Record<Confession["category"], string> = {
 
 export default function ConfessionGrid({ confessions }: ConfessionGridProps) {
   const [prayerCounts, setPrayerCounts] = useState<Record<string, number>>(
-    Object.fromEntries(confessions.map((c) => [c.id, c.prayer_count]))
+    Object.fromEntries(confessions.map((c) => [c.id, c.prayer_count ?? 0]))
   );
 
   async function handlePray(id: string) {
@@ -62,7 +62,7 @@ export default function ConfessionGrid({ confessions }: ConfessionGridProps) {
               <span>Praying ({prayerCounts[confession.id] || 0})</span>
             </button>
             <span className="text-xs text-sacred-cream opacity-40">
-              {new Date(confession.created_at).toLocaleDateString()}
+              {confession.created_at ? new Date(confession.created_at).toLocaleDateString() : ""}
             </span>
           </div>
         </div>

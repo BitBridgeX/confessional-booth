@@ -9,7 +9,7 @@ interface EpisodeCardProps {
 }
 
 export default function EpisodeCard({ episode }: EpisodeCardProps) {
-  const date = new Date(episode.release_date).toLocaleDateString("en-US", {
+  const date = new Date(episode.release_date ?? Date.now()).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",

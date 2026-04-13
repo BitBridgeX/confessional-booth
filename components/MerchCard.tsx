@@ -32,7 +32,7 @@ export default function MerchCard({ product }: MerchCardProps) {
               className="object-cover group-hover:scale-105 transition-transform duration-300"
             />
             <div className="absolute top-2 right-2 bg-black bg-opacity-60 px-2 py-1 rounded text-sm">
-              {categoryEmoji[product.type] || "🛍️"}
+              {(product.type ? categoryEmoji[product.type] : null) || "🛍️"}
             </div>
           </div>
         )}
@@ -51,7 +51,7 @@ export default function MerchCard({ product }: MerchCardProps) {
               ${product.price.toFixed(2)}
             </span>
             <span className="text-xs text-sacred-cream opacity-60">
-              {product.inventory > 0 ? `${product.inventory} in stock` : "Out of stock"}
+              {(product.inventory ?? 0) > 0 ? `${product.inventory} in stock` : "Out of stock"}
             </span>
           </div>
         </div>
