@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Confessional Booth",
-  description: "Sacred space for confessions, prayers, and deep spiritual conversations",
+  title: "Confessional Booth × Cookie Mami | HolyFans",
+  description:
+    "Confess your digital sins. Get Cookie Mami's response. Buy merch. Listen to the podcast. The sacred space for sinners.",
   icons: {
-    icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' font-weight='bold' fill='%23D4AF37'>†</text></svg>",
+    icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>🍪</text></svg>",
   },
 };
 
@@ -16,9 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-sacred-purple-dark text-sacred-cream font-geist antialiased">
-        {children}
-      </body>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }

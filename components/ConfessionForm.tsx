@@ -1,74 +1,131 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { submitConfession } from "@/lib/confessions";
-import { Confession } from "@/lib/supabase";
 
 const CATEGORIES = [
-  { value: "prayer_request", label: "Prayer Request" },
-  { value: "praise", label: "Praise & Thanksgiving" },
-  { value: "confession", label: "Confession" },
-  { value: "testimony", label: "Testimony" },
+  { value: "screen_time", label: "🔥 Excessive Screen Time" },
+  { value: "guilty_search", label: "🔍 Guilty Search History" },
+  { value: "subscription", label: "💳 Secret Subscriptions" },
+  { value: "dm_sins", label: "💬 DM Sins" },
+  { value: "late_night", label: "🌙 3AM Scrolling" },
+  { value: "catfish", label: "🐱 Catfishing" },
+  { value: "other", label: "😈 Other Digital Sin" },
+];
+
+const COOKIE_MAMI_RESPONSES = [
+  {
+    text: "Oh baby, that's not even your worst sin and we both know it. But Cookie Mami forgives you... this time. 🍪",
+    severity: "mild",
+  },
+  {
+    text: "Mmm, now THAT'S a confession. You've been very, very naughty. I'm gonna need you to buy some merch as penance. 💋",
+    severity: "spicy",
+  },
+  {
+    text: "Honey... I've heard worse. Actually, no I haven't. Report to my office immediately. Bring cookies. 😈",
+    severity: "wild",
+  },
+  {
+    text: "The devil works hard, but you work harder. I'm impressed AND concerned. Here's your cookie of shame. 🍪🔥",
+    severity: "nuclear",
+  },
+  {
+    text: "That's kinda sweet, actually. In a twisted, deeply concerning way. Cookie Mami approves. Now go say 3 Hail Cookies. 🙏🍪",
+    severity: "wholesome",
+  },
+  {
+    text: "You typed that with your whole chest, huh? Bold. I respect it. Your penance is 10 minutes of my podcast. 🎙️",
+    severity: "sassy",
+  },
+  {
+    text: "Oh you thought you could shock ME? Sweetheart, I invented that sin. Amateur hour is OVER. Level up. 👑",
+    severity: "iconic",
+  },
 ];
 
 export default function ConfessionForm() {
   const [text, setText] = useState("");
-  const [category, setCategory] = useState<Confession["category"]>("prayer_request");
+  const [category, setCategory] = useState("other");
   const [submitted, setSubmitted] = useState(false);
+  const [response, setResponse] = useState<(typeof COOKIE_MAMI_RESPONSES)[0] | null>(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
 
-  async function handleSubmit(e: FormEvent) {
+  function handleSubmit(e: FormEvent) {
     e.preventDefault();
     setLoading(true);
-    setError("");
 
-    try {
-      const ip = await fetch("/api/ip").then((r) => r.json()).then((d) => d.ip || "0.0.0.0");
-
-      const result = await submitConfession(text, category, ip);
-
-      if (result) {
-        setText("");
-        setSubmitted(true);
-        setTimeout(() => setSubmitted(false), 5000);
-      } else {
-        setError("Failed to submit. Please try again.");
-      }
-    } catch (err) {
-      setError("An error occurred. Please try again.");
-      console.error(err);
-    } finally {
+    // Simulate Cookie Mami "reading" the confession
+    setTimeout(() => {
+      const randomResponse =
+        COOKIE_MAMI_RESPONSES[Math.floor(Math.random() * COOKIE_MAMI_RESPONSES.length)];
+      setResponse(randomResponse);
+      setSubmitted(true);
       setLoading(false);
-    }
+    }, 2000);
   }
 
-  if (submitted) {
+  function reset() {
+    setText("");
+    setCategory("other");
+    setSubmitted(false);
+    setResponse(null);
+  }
+
+  if (submitted && response) {
     return (
-      <div className="sacred-card border-sacred-gold border-2 text-center space-y-4">
-        <div className="text-4xl text-sacred-gold">✓</div>
-        <h3 className="font-playfair text-2xl">Thank You</h3>
-        <p className="text-sm text-sacred-cream opacity-80">
-          Your confession has been received. A pastor will review it shortly.
-        </p>
+      <div className="space-y-6">
+        {/* The confession */}
+        <div className="sin-card border-hot-pink/30">
+          <p className="text-xs text-blush/40 mb-2 uppercase tracking-wider">Your Confession</p>
+          <p className="text-blush/80 italic">&ldquo;{text}&rdquo;</p>
+        </div>
+
+        {/* Cookie Mami's response */}
+        <div className="cookie-bubble animate-glow">
+          <div className="flex items-center space-x-3 mb-4">
+            <span className="text-4xl animate-float">🍪</span>
+            <div>
+              <p className="font-playfair text-lg gradient-pink">Cookie Mami</p>
+              <span className="badge badge-pink text-[10px]">{response.severity}</span>
+            </div>
+          </div>
+          <p className="font-handwritten text-2xl text-neon-pink leading-relaxed">
+            {response.text}
+          </p>
+        </div>
+
+        <div className="flex gap-4">
+          <button onClick={reset} className="btn-sin-primary flex-1">
+            Confess Again 🔥
+          </button>
+          <a href="/merch" className="btn-sin-gold flex-1 text-center">
+            Buy Penance 🛍️
+          </a>
+        </div>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="sacred-card space-y-6">
+    <form onSubmit={handleSubmit} className="sin-card space-y-6">
+      <div className="text-center mb-4">
+        <span className="text-5xl animate-float inline-block">🍪</span>
+        <h3 className="font-playfair text-2xl mt-2">
+          <span className="gradient-pink">Cookie Mami</span> is listening...
+        </h3>
+      </div>
+
       <div>
-        <label htmlFor="category" className="block text-sm font-semibold mb-2 text-sacred-gold">
-          What would you like to share?
+        <label className="block text-sm font-bold mb-2 text-hot-pink uppercase tracking-wider">
+          Type of Sin
         </label>
         <select
-          id="category"
           value={category}
-          onChange={(e) => setCategory(e.target.value as Confession["category"])}
-          className="w-full bg-sacred-purple border border-sacred-gold border-opacity-30 rounded px-4 py-2 text-sacred-cream focus:border-opacity-100"
+          onChange={(e) => setCategory(e.target.value)}
+          className="w-full bg-dark-velvet border border-hot-pink/30 rounded-xl px-4 py-3 text-blush focus:border-hot-pink"
         >
           {CATEGORIES.map((cat) => (
-            <option key={cat.value} value={cat.value} className="bg-sacred-purple-dark">
+            <option key={cat.value} value={cat.value} className="bg-dark-velvet">
               {cat.label}
             </option>
           ))}
@@ -76,38 +133,38 @@ export default function ConfessionForm() {
       </div>
 
       <div>
-        <label htmlFor="text" className="block text-sm font-semibold mb-2 text-sacred-gold">
-          Your Message (max 500 characters)
+        <label className="block text-sm font-bold mb-2 text-hot-pink uppercase tracking-wider">
+          Confess (max 500 characters)
         </label>
         <textarea
-          id="text"
           value={text}
           onChange={(e) => setText(e.target.value.slice(0, 500))}
-          placeholder="Share your heart here..."
-          rows={6}
-          className="w-full bg-sacred-purple border border-sacred-gold border-opacity-30 rounded px-4 py-3 text-sacred-cream placeholder-sacred-cream placeholder-opacity-40 focus:border-opacity-100 resize-none"
+          placeholder="Tell Cookie Mami everything... she's heard worse, trust. 😈"
+          rows={5}
+          className="w-full bg-dark-velvet border border-hot-pink/30 rounded-xl px-4 py-3 text-blush placeholder-blush/30 focus:border-hot-pink resize-none"
         />
-        <p className="text-xs text-sacred-cream opacity-60 mt-2">
-          {text.length}/500
-        </p>
-      </div>
-
-      {error && (
-        <div className="bg-red-900 bg-opacity-30 border border-red-500 rounded px-4 py-2 text-red-200 text-sm">
-          {error}
+        <div className="flex justify-between text-xs text-blush/40 mt-2">
+          <span>{text.length}/500</span>
+          <span>100% anonymous</span>
         </div>
-      )}
+      </div>
 
       <button
         type="submit"
         disabled={loading || !text.trim()}
-        className="btn-sacred-primary w-full disabled:opacity-50 disabled:cursor-not-allowed"
+        className="btn-sin-primary w-full text-lg disabled:opacity-40 disabled:cursor-not-allowed"
       >
-        {loading ? "Submitting..." : "Submit Confession"}
+        {loading ? (
+          <span className="animate-pulse-sin inline-block">
+            🍪 Cookie Mami is reading your sins...
+          </span>
+        ) : (
+          "Submit Confession 🔥"
+        )}
       </button>
 
-      <p className="text-xs text-sacred-cream opacity-60 text-center">
-        Your submission is completely anonymous. Your IP is not stored.
+      <p className="text-center text-xs text-blush/30">
+        Your confession is anonymous. Cookie Mami may read it on the podcast. 🎙️
       </p>
     </form>
   );

@@ -8,22 +8,23 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        sacred: {
-          gold: "#D4AF37",
-          "gold-light": "#E8D4A8",
-          purple: "#2D1B4E",
-          "purple-dark": "#1a0f2e",
-          cream: "#F5F1E8",
-          "cream-dark": "#E8DCC8",
-        },
+        "hot-pink": "#FF1493",
+        "hot-pink-dark": "#C71168",
+        "neon-pink": "#FF6EC7",
+        "deep-plum": "#1A0A1E",
+        "dark-velvet": "#0D0610",
+        "royal-purple": "#6B21A8",
+        "sacred-gold": "#D4AF37",
+        "gold-light": "#F0D68A",
+        "blush": "#FFB6C1",
+        "latex-black": "#111111",
+        "leather-red": "#8B0000",
+        "sin-red": "#DC143C",
       },
       fontFamily: {
         playfair: ["Playfair Display", "serif"],
-        geist: ["Geist", "sans-serif"],
-      },
-      backgroundImage: {
-        "sacred-gradient": "linear-gradient(135deg, #2D1B4E 0%, #1a0f2e 100%)",
-        "gold-gradient": "linear-gradient(135deg, #D4AF37 0%, #B8860B 100%)",
+        inter: ["Inter", "sans-serif"],
+        handwritten: ["Caveat", "cursive"],
       },
     },
   },
