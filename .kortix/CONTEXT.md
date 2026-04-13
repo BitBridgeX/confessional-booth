@@ -1,13 +1,75 @@
-# HolyFans Confessional Booth — Full Platform
+# HolyFans Confessional Booth — Full Platform + Specialized Subagents
 
-## Status: COMPLETE SCAFFOLD
+## Status: ARCHITECTURE RESTRUCTURED FOR SCALE
 
-All core infrastructure, components, and pages built. Ready for:
-1. Supabase connection
-2. Environment configuration
-3. Testing and QA
+Platform scaffold complete. Five specialized subagents now managing:
+1. **Visual & Design** — UI/UX, branding, COOKIE MAMI avatar redesign, component library
+2. **Dropshipping & Fulfillment** — Merchandise sourcing, inventory, logistics across 5+ product categories
+3. **Content Creation** — Sermons, podcasts, hymns, illustrated "Codex of HOLYFANS" book, scripture
+4. **Social Media** — Multi-platform presence (OnlyFans, TikTok, YouTube, Instagram, X, Twitch, Discord)
+5. **Domagotchi Game** — Gamified confessional NLP engine with sin/virtue mechanics, haptic feedback, couples mode
 
-## The Four Pillars ✅
+## Five Specialized Subagents (New)
+
+### 1. **Visual & Design Agent** 🎨
+- IMMEDIATE: Redesign COOKIE MAMI avatar as boss-bitch dominatrix (not potato head)
+- Creates dark, provocative, tech-fetish interface design
+- Product mockups, lifestyle photography concepts, packaging
+- Component library (gamification UI, sacred cards, neon accents)
+- Social media templates + brand guidelines
+- **Collaboration**: Works closely with Dropshipping + Social Media agents
+
+### 2. **Dropshipping & Fulfillment Agent** 📦
+- Manages 5+ product categories:
+  - **Wearables**: Hoodies, crop tops, studded accessories, fishnet, collars
+  - **Adult Toys & Lingerie**: Luxury vibrators, harnesses, leather gear
+  - **Food & Beverage**: "COOKIE MAMI" cookies, "Wondermilk" snacks, chocolate, whipped cream
+  - **Stickers & Digital**: Vinyl decals, digital downloads, e-books
+  - **Premium Bundles**: "Confession Box" kits, "Domme Starter Pack"
+- Vendor sourcing + negotiations (Printful, Etsy, food suppliers, adult retailers)
+- Inventory management + pricing strategy (30-50% margins)
+- Fulfillment automation + shipping logistics
+- **Database**: Product SKU sync, inventory tracking, order fulfillment
+- **Collaboration**: Iterates with Visual Agent on mockups; coordinates launches with Content Agent
+
+### 3. **Content Creation Agent** 📖
+- **Sermons**: "AMEN, SLUT: Reclaiming the Sacred Body" + 11-episode series (30-45 min each)
+- **Podcasts**: "Confess with Your Mouthful" (short) + "Sacred Sins" (deep-dive interviews)
+- **Hymns**: Original compositions using Suno AI + live instrumentation (5+ per month)
+- **Illustrated Book**: "The Codex of HOLYFANS" (200-300 page digital + print)
+  - Origin story, sacred texts, confessional narratives, ritual guides, theology essays, art gallery
+- **Daily/Weekly Prayers**: 200-400 word devotionals with "GO FORTH, AND BE A SLUT" energy
+- **Theological Framework**: Reinterprets spirituality through sexuality, pleasure, power, autonomy
+- **Collaboration**: Provides raw content to Social Media agent; aligns merch launches with themes; integrates game rewards
+
+### 4. **Social Media Agent** 📱
+- **Multi-platform presence**: OnlyFans (primary revenue), TikTok (viral funnel), YouTube (authority), Instagram (aesthetic), X (discourse), Twitch (live), Discord (community)
+- **Content adaptation**: Sermon → 6x TikTok clips, YouTube shorts, Instagram reels, X threads, OnlyFans exclusives
+- **Community management**: Daily engagement, weekly analytics review, influencer partnerships
+- **Merch integration**: Teaser campaigns, platform-specific discount codes, tracking
+- **Metrics**: OnlyFans $12.5k/mo target (500 subscribers), TikTok 100k followers, YouTube 50k subscribers
+- **Collaboration**: Adapts content from Content Agent; promotes merch drops with Dropshipping; coordinates game events
+
+### 5. **Domagotchi Game Agent** 🎮
+- **NLP Confession Engine**: Process user confessions → extract intent → calculate sin points (1-100)
+- **Penance System**: Auto-generate 4 penance options per confession (challenge, service, ritual, behavioral)
+- **Gamification Mechanics**:
+  - Level progression (1-100) with XP system
+  - Sin/Virtue score tracking + interactive balance meter
+  - 50+ achievements/badges (confession milestones, penance mastery, sin celebrations)
+  - Rank progression: Penitent → Confessor → Saint/Sinner → Domme/Sub
+  - Weekly/monthly boss challenges (500 XP+ rewards)
+- **Haptic Integration**: Buzzes, pulses, vibration patterns tied to events (achievement, penance, warnings, couples sync)
+- **Couples Mode**:
+  - Partnership system (level 1-50)
+  - Power dynamics (domme/sub role-playing)
+  - Synchronized challenges + shared leaderboards
+  - Couples tournaments
+- **Leaderboards**: Global + weekly ranking (anonymous or opt-in)
+- **Reward Unlocks**: Merch codes, exclusive sermons, premium content, status badges
+- **Database**: Game profiles, confessions, penances, badges, leaderboards, couples challenges
+
+## The Four Pillars (Original) ✅
 
 ### 1. 🎙️ **Podcast**
 - `/app/podcast/page.tsx` — Episode feed and browse
@@ -198,14 +260,47 @@ All tables include:
 - ✅ Product cards with inventory tracking
 - ✅ Bundle pricing logic ready for backend
 
-## Sacred Aesthetic
+## Sacred Aesthetic (UPDATED)
 
-The entire platform celebrates restraint, reverence, and depth:
-- Generous whitespace
-- Minimal corporate language
-- Soft, contemplative animations
-- Gold accents for the holy
-- Deep purple/black for reflection
-- Serif fonts for liturgical weight
+The entire platform blends **reverent irreverence** with **dark sexuality**:
+- Generous whitespace + neon accents
+- Gold + hot pink + electric blue color palette
+- Soft contemplative animations + harsh glitches/transitions
+- Gold accents for the holy; neon for the taboo
+- Deep purple/black for reflection; tech-fetish elements
+- Playfair Display for liturgical weight; monospace for tech-edge
+- Religious iconography subverted (halos → rings, crosses → tech symbols)
+- Gamification visuals: sin meters, achievement badges, XP counters, power indicators
 
-This is not Instagram. This is a confessional.
+**Tone Across Everything:**
+- "AMEN, SLUT."
+- "KISS THE RING."
+- "404: INNOCENCE NOT FOUND."
+- "CONFESS WITH YOUR MOUTHFUL."
+- "GO FORTH, AND BE A SLUT."
+- Kinky boss-bitch empowerment
+- Playful, irreverent, spiritual-but-modern, dark, mysterious, edgy
+
+This is not Instagram. This is not a real church (sort of). This is a cutting-edge digital confessional booth.
+
+## IMMEDIATE PRIORITY: COOKIE MAMI Avatar Redesign
+
+**Current Status**: Placeholder avatar (not brand-appropriate)
+**Requirement**: Boss-bitch dominatrix, NOT Miss Potato Head
+
+**Design Spec**:
+- **Style**: Hyper-stylized anime/manga digital art
+- **Attitude**: Confident, commanding, seductive, irreverent
+- **Outfit**: Dominatrix aesthetic (leather, chains, corset, tactical harness, thigh-highs, studded collar)
+- **Expression**: Knowing smirk, direct eye contact, power stance
+- **Accessories**: Crown, command staff/scepter, whip as props
+- **Colors**: Black leather, gold accents, hot pink highlights, electric blue neon
+- **Background**: Dark confessional booth with candles + LED halos + tech elements
+- **Deliverables**:
+  - Full-body front/3/4/side views
+  - Multiple expressions (commanding, playful, mysterious, sultry)
+  - Transparent PNG (1200x1600px+)
+  - Animation sprites for movement
+  - UI integration mockup
+
+**Assignment**: Visual & Design Agent (URGENT)
