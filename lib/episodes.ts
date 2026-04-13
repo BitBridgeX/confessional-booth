@@ -1,6 +1,13 @@
-import { supabase, Episode } from "./supabase";
+import { Episode } from "./supabase";
+
+function getSupabase() {
+  const { createClient } = require("@supabase/supabase-js");
+  const { config } = require("./config");
+  return createClient(config.supabase.url, config.supabase.anonKey);
+}
 
 export async function getEpisodes(limit = 10): Promise<Episode[]> {
+  const supabase = getSupabase();
   const { data, error } = await supabase
     .from("cb_episodes")
     .select("*")
@@ -17,6 +24,7 @@ export async function getEpisodes(limit = 10): Promise<Episode[]> {
 }
 
 export async function getEpisode(id: string): Promise<Episode | null> {
+  const supabase = getSupabase();
   const { data, error } = await supabase
     .from("cb_episodes")
     .select("*")
@@ -32,6 +40,7 @@ export async function getEpisode(id: string): Promise<Episode | null> {
 }
 
 export async function createEpisode(episode: Omit<Episode, "id" | "created_at">): Promise<Episode | null> {
+  const supabase = getSupabase();
   const { data, error } = await supabase
     .from("cb_episodes")
     .insert([episode])
@@ -47,6 +56,7 @@ export async function createEpisode(episode: Omit<Episode, "id" | "created_at">)
 }
 
 export async function updateEpisode(id: string, updates: Partial<Episode>): Promise<Episode | null> {
+  const supabase = getSupabase();
   const { data, error } = await supabase
     .from("cb_episodes")
     .update(updates)

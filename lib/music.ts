@@ -1,6 +1,13 @@
-import { supabase, MusicTrack } from "./supabase";
+import { MusicTrack } from "./supabase";
+
+function getSupabase() {
+  const { createClient } = require("@supabase/supabase-js");
+  const { config } = require("./config");
+  return createClient(config.supabase.url, config.supabase.anonKey);
+}
 
 export async function getTracks(episodeId?: string, limit = 50): Promise<MusicTrack[]> {
+  const supabase = getSupabase();
   let query = supabase.from("cb_music_tracks").select("*");
 
   if (episodeId) {
@@ -20,6 +27,7 @@ export async function getTracks(episodeId?: string, limit = 50): Promise<MusicTr
 }
 
 export async function getTrack(id: string): Promise<MusicTrack | null> {
+  const supabase = getSupabase();
   const { data, error } = await supabase
     .from("cb_music_tracks")
     .select("*")
@@ -35,6 +43,7 @@ export async function getTrack(id: string): Promise<MusicTrack | null> {
 }
 
 export async function createTrack(track: Omit<MusicTrack, "id" | "created_at">): Promise<MusicTrack | null> {
+  const supabase = getSupabase();
   const { data, error } = await supabase
     .from("cb_music_tracks")
     .insert([track])
@@ -50,6 +59,7 @@ export async function createTrack(track: Omit<MusicTrack, "id" | "created_at">):
 }
 
 export async function getTracksByGenre(genre: string): Promise<MusicTrack[]> {
+  const supabase = getSupabase();
   const { data, error } = await supabase
     .from("cb_music_tracks")
     .select("*")
@@ -65,6 +75,7 @@ export async function getTracksByGenre(genre: string): Promise<MusicTrack[]> {
 }
 
 export async function getTracksByMood(mood: string): Promise<MusicTrack[]> {
+  const supabase = getSupabase();
   const { data, error } = await supabase
     .from("cb_music_tracks")
     .select("*")

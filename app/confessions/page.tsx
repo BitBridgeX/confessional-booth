@@ -1,10 +1,12 @@
+"use client";
+
 import Navigation from "@/components/Navigation";
 import ConfessionForm from "@/components/ConfessionForm";
 import ConfessionGrid from "@/components/ConfessionGrid";
+import { useState, useEffect } from "react";
 
-export default async function ConfessionsPage() {
-  // Mock confessions - replace with real Supabase data
-  const mockConfessions = [
+export default function ConfessionsPage() {
+  const [confessions, setConfessions] = useState([
     {
       id: "1",
       text: "Please pray for my family as we navigate a difficult season. Thank you.",
@@ -35,7 +37,12 @@ export default async function ConfessionsPage() {
       attribution: "anon" as const,
       prayer_count: 15,
     },
-  ];
+  ]);
+
+  useEffect(() => {
+    // Load confessions from Supabase when component mounts
+    // For now, using mock data
+  }, []);
 
   return (
     <>
@@ -67,7 +74,7 @@ export default async function ConfessionsPage() {
           <h2 className="font-playfair text-3xl mb-12">
             Pray Together: Community Confessions
           </h2>
-          <ConfessionGrid confessions={mockConfessions} />
+          <ConfessionGrid confessions={confessions} />
         </section>
 
         {/* How It Works */}

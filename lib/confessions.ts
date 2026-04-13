@@ -1,5 +1,17 @@
-import { supabase, Confession } from "./supabase";
+import { Confession } from "./supabase";
 import crypto from "crypto";
+
+// Lazy-load Supabase to avoid build-time issues
+let supabase: any = null;
+
+function getSupabase() {
+  if (!supabase) {
+    const { createClient } = require("@supabase/supabase-js");
+    const { config } = require("./config");
+    supabase = createClient(config.supabase.url, config.supabase.anonKey);
+  }
+  return supabase;
+}
 
 // Hash IP for anonymity
 export function hashIP(ip: string): string {
@@ -12,8 +24,9 @@ export async function submitConfession(
   ip: string
 ): Promise<Confession | null> {
   const ipHash = hashIP(ip);
+  const sb = getSupabase();
 
-  const { data, error } = await supabase
+  const { data, error } = await sb
     .from("cb_confessions")
     .insert([
       {
@@ -37,7 +50,8 @@ export async function submitConfession(
 }
 
 export async function getApprovedConfessions(limit = 20): Promise<Confession[]> {
-  const { data, error } = await supabase
+  const sb = getSupabase();
+  const { data, error } = await sb
     .from("cb_confessions")
     .select("*")
     .eq("status", "approved")
@@ -53,7 +67,8 @@ export async function getApprovedConfessions(limit = 20): Promise<Confession[]> 
 }
 
 export async function getPendingConfessions(): Promise<Confession[]> {
-  const { data, error } = await supabase
+  const sb = getSupabase();
+  const { data, error } = await sb
     .from("cb_confessions")
     .select("*")
     .eq("status", "pending")
@@ -71,7 +86,8 @@ export async function approveConfession(
   id: string,
   approvedBy: string
 ): Promise<Confession | null> {
-  const { data, error } = await supabase
+  const sb = getSupabase();
+  const { data, error } = await sb
     .from("cb_confessions")
     .update({ status: "approved", approved_by: approvedBy })
     .eq("id", id)
@@ -87,7 +103,8 @@ export async function approveConfession(
 }
 
 export async function rejectConfession(id: string): Promise<Confession | null> {
-  const { data, error } = await supabase
+  const sb = getSupabase();
+  const { data, error } = await sb
     .from("cb_confessions")
     .update({ status: "rejected" })
     .eq("id", id)
@@ -103,5 +120,6 @@ export async function rejectConfession(id: string): Promise<Confession | null> {
 }
 
 export async function incrementPrayerCount(id: string): Promise<void> {
-  await supabase.rpc("increment_prayer_count", { confession_id: id });
+  const sb = getSupabase();
+  await sb.rpc("increment_prayer_count", { confession_id: id });
 }

@@ -1,9 +1,16 @@
-import { supabase, MerchProduct, Order } from "./supabase";
+import { MerchProduct, Order } from "./supabase";
+
+function getSupabase() {
+  const { createClient } = require("@supabase/supabase-js");
+  const { config } = require("./config");
+  return createClient(config.supabase.url, config.supabase.anonKey);
+}
 
 export async function getProducts(
   category?: string,
   limit = 50
 ): Promise<MerchProduct[]> {
+  const supabase = getSupabase();
   let query = supabase.from("cb_merch_products").select("*");
 
   if (category) {
@@ -11,7 +18,7 @@ export async function getProducts(
   }
 
   const { data, error } = await query
-    .eq("inventory", ">", 0)
+    .gt("inventory", 0)
     .order("created_at", { ascending: false })
     .limit(limit);
 
@@ -24,6 +31,7 @@ export async function getProducts(
 }
 
 export async function getProduct(id: string): Promise<MerchProduct | null> {
+  const supabase = getSupabase();
   const { data, error } = await supabase
     .from("cb_merch_products")
     .select("*")
@@ -41,6 +49,7 @@ export async function getProduct(id: string): Promise<MerchProduct | null> {
 export async function createProduct(
   product: Omit<MerchProduct, "id" | "created_at">
 ): Promise<MerchProduct | null> {
+  const supabase = getSupabase();
   const { data, error } = await supabase
     .from("cb_merch_products")
     .insert([product])
@@ -59,6 +68,7 @@ export async function updateProductInventory(
   id: string,
   quantity: number
 ): Promise<void> {
+  const supabase = getSupabase();
   await supabase.rpc("update_inventory", { product_id: id, qty: quantity });
 }
 
@@ -68,6 +78,7 @@ export async function createOrder(
   quantity: number,
   stripeOrderId: string
 ): Promise<Order | null> {
+  const supabase = getSupabase();
   const { data, error } = await supabase
     .from("cb_orders")
     .insert([
@@ -91,6 +102,7 @@ export async function createOrder(
 }
 
 export async function getOrders(userId: string): Promise<Order[]> {
+  const supabase = getSupabase();
   const { data, error } = await supabase
     .from("cb_orders")
     .select("*")
@@ -109,6 +121,7 @@ export async function updateOrderStatus(
   id: string,
   status: Order["status"]
 ): Promise<Order | null> {
+  const supabase = getSupabase();
   const { data, error } = await supabase
     .from("cb_orders")
     .update({ status })
