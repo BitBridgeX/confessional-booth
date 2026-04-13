@@ -96,7 +96,7 @@ export default function MembershipPage() {
             <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-hot-pink/10 rounded-full blur-3xl" />
           </div>
           <div className="relative max-w-4xl mx-auto text-center space-y-6">
-            <CookieMamiAvatar size={100} animated className="mx-auto" />
+            <CookieMamiAvatar size={100} className="mx-auto" />
             <h1 className="font-playfair text-5xl md:text-6xl font-black">
               Join the <span className="gradient-sinful">Congregation</span>
             </h1>

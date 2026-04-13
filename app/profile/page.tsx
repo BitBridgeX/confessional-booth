@@ -42,7 +42,7 @@ export default function ProfilePage() {
             <div className="absolute top-0 right-1/3 w-72 h-72 bg-hot-pink/5 rounded-full blur-3xl" />
           </div>
           <div className="relative max-w-4xl mx-auto flex flex-col sm:flex-row items-center gap-8">
-            <CookieMamiAvatar size={100} animated className="flex-shrink-0" />
+            <CookieMamiAvatar size={100} className="flex-shrink-0" />
             <div className="text-center sm:text-left space-y-2">
               <h1 className="font-playfair text-4xl font-bold">{user.name}</h1>
               <p className="text-blush/50">{user.email}</p>

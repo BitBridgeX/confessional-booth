@@ -33,7 +33,7 @@ export default function EmailCapture({ variant = "inline", className = "" }: Ema
   if (submitted) {
     return (
       <div className={`sin-card text-center space-y-4 ${className}`}>
-        <CookieMamiAvatar size={60} animated={false} className="mx-auto" />
+        <CookieMamiAvatar size={60} className="mx-auto" />
         <p className="font-playfair text-xl gradient-pink">You&apos;re in, sinner.</p>
         <p className="font-handwritten text-lg text-neon-pink">
           &ldquo;Cookie Mami will be in touch. Check your spam folder — she ends up there sometimes.&rdquo;
@@ -45,7 +45,7 @@ export default function EmailCapture({ variant = "inline", className = "" }: Ema
   return (
     <div className={`sin-card space-y-4 ${className}`}>
       <div className="flex items-center gap-4">
-        <CookieMamiAvatar size={60} animated className="flex-shrink-0" />
+        <CookieMamiAvatar size={60} className="flex-shrink-0" />
         <div>
           <h3 className="font-playfair text-xl">Get the Newsletter</h3>
           <p className="text-sm text-blush/60">{prompt}</p>

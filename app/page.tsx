@@ -80,7 +80,7 @@ export default function Home() {
           </div>
 
           <div className="relative max-w-5xl mx-auto text-center space-y-8">
-            <CookieMamiAvatar size={180} animated className="mx-auto drop-shadow-2xl" />
+            <CookieMamiAvatar size={180} className="mx-auto drop-shadow-2xl" />
 
             <h1 className="font-playfair text-5xl md:text-8xl font-black leading-none">
               <span className="gradient-pink">Confessional</span>

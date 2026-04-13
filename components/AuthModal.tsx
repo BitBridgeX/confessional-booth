@@ -46,7 +46,7 @@ export default function AuthModal({ onClose, defaultMode = "signin" }: AuthModal
 
         {/* Avatar */}
         <div className="flex justify-center">
-          <CookieMamiAvatar size={80} animated={false} />
+          <CookieMamiAvatar size={80} className="" />
         </div>
 
         <div className="text-center space-y-1">

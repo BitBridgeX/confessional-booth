@@ -53,7 +53,7 @@ export default function EnterPage() {
       <div className={`relative text-center space-y-12 transition-all duration-700 ${entered ? "scale-110 opacity-0" : "scale-100 opacity-100"}`}>
         {/* Avatar */}
         <div className="flex justify-center">
-          <CookieMamiAvatar size={160} animated className="drop-shadow-2xl" />
+          <CookieMamiAvatar size={160} className="drop-shadow-2xl" />
         </div>
 
         {/* Animated text */}

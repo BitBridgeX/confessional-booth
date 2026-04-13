@@ -58,7 +58,7 @@ export default function MembershipGate({ tier, children, preview }: MembershipGa
 
       {/* Gate card */}
       <div className="sin-card border-hot-pink/40 text-center space-y-6 py-12">
-        <CookieMamiAvatar size={80} animated className="mx-auto" />
+        <CookieMamiAvatar size={80} className="mx-auto" />
 
         <div className="space-y-2">
           <span className={`badge ${TIER_COLORS[tier]} text-sm px-4 py-1.5`}>
