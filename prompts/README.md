@@ -4,6 +4,12 @@
 **Last Updated**: April 13, 2026  
 **Purpose**: Centralized prompt management for all visual asset generation
 
+**IMPORTANT NOTE**: Premium production only. NO Midjourney or budget AI generation.
+- Images: High-end AI (DALL-E 3, Stability Ultra, or professional photographers)
+- Videos: Premium video AI (Runway, Pika, Synthesia)
+- Audio: Professional voice talent, premium music composition, studio mastering
+- All production must meet broadcast/magazine quality standards
+
 ---
 
 ## Structure

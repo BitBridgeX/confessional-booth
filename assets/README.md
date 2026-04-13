@@ -4,6 +4,11 @@
 **Last Updated**: April 13, 2026  
 **Purpose**: Centralized repository for all visual assets (website, streams, merch, overlays, filters)
 
+**PRODUCTION STANDARD**: Premium quality only. NO Midjourney or budget AI.
+- Images: DALL-E 3, Stability Ultra, professional photographers
+- Videos: Runway, Pika Labs, professional cinematography
+- All assets must meet magazine/broadcast production standards
+
 ---
 
 ## Structure

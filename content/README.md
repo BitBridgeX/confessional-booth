@@ -24,6 +24,14 @@ content/
 │   ├── transcripts/ (markdown sermon texts)
 │   └── audio/ (WAV/MP3 recordings)
 │
+├── podcasts/
+│   ├── README.md (podcast series + episode guides)
+│   ├── confess-with-your-mouthful/ (short-form confessions + interviews)
+│   ├── sacred-sins/ (deep-dive theological discussions)
+│   ├── the-penitent/ (guest stories + reflection)
+│   ├── transcripts/ (episode scripts + show notes)
+│   └── audio/ (WAV/MP3 recordings + metadata)
+│
 ├── ceremonies/
 │   ├── README.md (ritual scripts + guidelines)
 │   ├── confessional-rituals/ (confession practices)
