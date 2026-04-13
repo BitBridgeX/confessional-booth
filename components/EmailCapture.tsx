@@ -66,7 +66,7 @@ export default function EmailCapture({ variant = "inline", className = "" }: Ema
           disabled={loading}
           className="btn-sin-primary px-5 py-3 disabled:opacity-50 flex-shrink-0"
         >
-          {loading ? "🍪" : "Subscribe"}
+          {loading ? "" : "Subscribe"}
         </button>
       </form>
 

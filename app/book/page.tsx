@@ -64,7 +64,7 @@ export default function BookPage() {
             <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-hot-pink/10 rounded-full blur-3xl" />
           </div>
           <div className="relative max-w-4xl mx-auto text-center space-y-8">
-            <div className="text-8xl animate-float">📖</div>
+            <div className="text-8xl animate-float"></div>
             <h1 className="font-playfair text-5xl md:text-7xl font-black">
               The <span className="gradient-sinful">Book of HolyFans</span>
             </h1>
@@ -129,7 +129,7 @@ export default function BookPage() {
             {SERMONS.map((s) => (
               <div key={s.num} className="sin-card">
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="text-3xl">⛪</span>
+                  <span className="text-3xl"></span>
                   <div>
                     <span className="text-xs text-sacred-gold">Sermon #{s.num}</span>
                     <h3 className="font-playfair text-xl">{s.title}</h3>
@@ -154,7 +154,7 @@ export default function BookPage() {
           <div className="grid md:grid-cols-2 gap-4">
             {PODCAST_SCRIPTS.map((script, i) => (
               <div key={i} className="sin-card flex items-start gap-3">
-                <span className="text-2xl">🎙️</span>
+                <span className="text-2xl"></span>
                 <p className="text-sm text-blush/70">{script}</p>
               </div>
             ))}
@@ -172,7 +172,7 @@ export default function BookPage() {
             {PROMO_SCRIPTS.map((s, i) => (
               <div key={i} className="sin-card">
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="text-3xl">🎬</span>
+                  <span className="text-3xl"></span>
                   <h3 className="font-playfair text-lg">{s.title}</h3>
                 </div>
                 <p className="text-sm text-blush/60">{s.desc}</p>
@@ -195,7 +195,7 @@ export default function BookPage() {
             </p>
             <div className="font-playfair text-5xl gradient-gold">$14.99</div>
             <Link href="/merch?category=digital-products" className="btn-sin-gold inline-block text-lg">
-              Buy the Book of HolyFans 📖
+              Buy the Book of HolyFans 
             </Link>
             <p className="text-xs text-blush/30">Instant digital delivery. No refunds (it's a sin to return scripture).</p>
           </div>

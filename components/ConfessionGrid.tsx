@@ -10,9 +10,9 @@ interface ConfessionGridProps {
 
 const CATEGORY_ICONS: Record<Confession["category"], string> = {
   prayer_request: "🙏",
-  praise: "✨",
+  praise: "",
   confession: "💔",
-  testimony: "📖",
+  testimony: "",
 };
 
 export default function ConfessionGrid({ confessions }: ConfessionGridProps) {

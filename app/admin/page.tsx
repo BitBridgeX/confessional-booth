@@ -18,11 +18,11 @@ const ORDERS = [
 ];
 
 const STATS = [
-  { label: "Confessions Today", value: "247", icon: "🔥", delta: "+12%" },
+  { label: "Confessions Today", value: "247", icon: "", delta: "+12%" },
   { label: "Pending Moderation", value: "5", icon: "⏳", delta: "needs review" },
-  { label: "Orders Today", value: "34", icon: "🛍️", delta: "+8%" },
+  { label: "Orders Today", value: "34", icon: "", delta: "+8%" },
   { label: "Revenue Today", value: "$1,284", icon: "💰", delta: "+22%" },
-  { label: "Podcast Plays", value: "1,847", icon: "🎙️", delta: "+15%" },
+  { label: "Podcast Plays", value: "1,847", icon: "", delta: "+15%" },
   { label: "New Subscribers", value: "89", icon: "📧", delta: "+5%" },
 ];
 
@@ -49,7 +49,7 @@ export default function AdminPage() {
               <p className="text-sm text-blush/50 mt-1">All your sins in one place.</p>
             </div>
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-hot-pink/20 flex items-center justify-center text-xl">🍪</div>
+              <div className="w-10 h-10 rounded-full bg-hot-pink/20 flex items-center justify-center text-xl"></div>
               <span className="text-sm text-blush/70">Cookie Mami</span>
             </div>
           </div>
@@ -71,10 +71,10 @@ export default function AdminPage() {
           {/* Tabs */}
           <div className="flex gap-2 mb-8 overflow-x-auto">
             {[
-              { key: "confessions", label: "🔥 Confessions", count: confessions.length },
-              { key: "orders", label: "🛍️ Orders", count: ORDERS.length },
-              { key: "episodes", label: "🎙️ Episodes", count: 10 },
-              { key: "products", label: "📦 Products", count: 110 },
+              { key: "confessions", label: " Confessions", count: confessions.length },
+              { key: "orders", label: " Orders", count: ORDERS.length },
+              { key: "episodes", label: " Episodes", count: 10 },
+              { key: "products", label: " Products", count: 110 },
             ].map(tab => (
               <button
                 key={tab.key}
@@ -102,7 +102,7 @@ export default function AdminPage() {
               </div>
               {confessions.length === 0 ? (
                 <div className="text-center py-16 text-blush/40">
-                  <div className="text-6xl mb-4">✨</div>
+                  <div className="text-6xl mb-4"></div>
                   <p className="font-playfair text-xl">All caught up! No pending confessions.</p>
                   <p className="text-sm mt-2">Cookie Mami is proud of you.</p>
                 </div>
@@ -122,7 +122,7 @@ export default function AdminPage() {
                           onClick={() => approveConfession(c.id)}
                           className="px-4 py-2 bg-green-900/40 text-green-400 border border-green-500/30 rounded-full text-xs font-bold hover:bg-green-900/60"
                         >
-                          ✓ Approve
+                           Approve
                         </button>
                         <button
                           onClick={() => rejectConfession(c.id)}
@@ -131,7 +131,7 @@ export default function AdminPage() {
                           ✕ Reject
                         </button>
                         <button className="px-4 py-2 bg-sacred-gold/20 text-sacred-gold border border-sacred-gold/30 rounded-full text-xs font-bold hover:bg-sacred-gold/30">
-                          🎙️ Feature
+                           Feature
                         </button>
                       </div>
                     </div>
@@ -195,7 +195,7 @@ export default function AdminPage() {
                       className="w-full bg-dark-velvet border border-hot-pink/30 rounded-xl px-4 py-3 text-blush placeholder-blush/30 focus:border-hot-pink resize-none" />
                   </div>
                 </div>
-                <button className="btn-sin-primary">Publish Episode 🎙️</button>
+                <button className="btn-sin-primary">Publish Episode </button>
               </div>
             </div>
           )}
@@ -229,7 +229,7 @@ export default function AdminPage() {
                       className="w-full bg-dark-velvet border border-hot-pink/30 rounded-xl px-4 py-3 text-blush placeholder-blush/30 focus:border-hot-pink resize-none" />
                   </div>
                 </div>
-                <button className="btn-sin-gold">Add Product 🛍️</button>
+                <button className="btn-sin-gold">Add Product </button>
               </div>
             </div>
           )}

@@ -2,19 +2,19 @@
 
 import Navigation from "@/components/Navigation";
 import Link from "next/link";
-import { useState, useRef } from "react";
+import { useState } from "react";
 
 const SONGS = [
   {
     id: "1",
-    title: "Confess (feat. Cookie Mami)",
+    title: "Confess",
     artist: "HolyFans",
     genre: "Dark R&B",
     mood: "Seductive",
     duration: "3:42",
     lyrics: `[Verse 1]
 Step into the booth, baby, close the door
-Tell me all the things you've been prayin' for
+Tell me all the things you've been praying for
 I can hear your heartbeat through the screen
 Darkest thoughts you've ever had, filthiest dreams
 
@@ -47,13 +47,7 @@ Catching holy spirit in the middle of the crowd
 Pour that holy water on me, let me feel the rain
 Wash away my search history, purify the pain
 Holy water, holy water, running down my face
-Every drop a blessing, every sin erased
-
-[Bridge]
-We don't do quiet worship here
-We don't do subtle, baby
-Turn the bass up to eleven
-Cookie Mami's church is READY`,
+Every drop a blessing, every sin erased`,
   },
   {
     id: "3",
@@ -72,13 +66,7 @@ Communion wine is going to my head
 Get in the pray position, baby
 On your knees, just like I taught you, maybe
 Hands together, eyes wide shut
-This confession booth ain't closing up
-
-[Verse 2]
-Read me like your scripture, line by line
-Every chapter better than the last time
-I'm the sermon that you can't resist
-Cookie Mami on your reading list`,
+This confession booth ain't closing up`,
   },
 ];
 
@@ -89,125 +77,96 @@ export default function MusicPage() {
   return (
     <>
       <Navigation />
-      <main className="min-h-screen pt-16">
+      <main className="min-h-screen bg-black pt-16">
+        
         {/* Header */}
-        <section className="relative py-20 px-4 overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="absolute top-1/3 left-1/3 w-96 h-96 bg-sacred-gold/10 rounded-full blur-3xl animate-float" />
-          </div>
-          <div className="relative max-w-4xl mx-auto text-center space-y-6">
-            <div className="text-7xl animate-float">🎵</div>
-            <h1 className="font-playfair text-5xl md:text-6xl font-black">
-              <span className="gradient-gold">Sacred Music</span>
+        <section className="px-4 md:px-8 py-32">
+          <div className="max-w-4xl mx-auto text-center space-y-12">
+            <h1 className="text-4xl md:text-6xl font-thin tracking-widest">
+              Music
             </h1>
-            <p className="text-xl text-blush/80">
-              Original tracks from the Confessional Booth. Dark R&B meets gospel
-              trap meets bedroom pop. All in Cookie Mami&apos;s voice.
+            <p className="text-base md:text-lg font-light text-off-white/70 max-w-2xl mx-auto">
+              Hymns for the sacred body. Beats for the bedroom. Sounds for solitude.
             </p>
-            <div className="inline-flex items-center gap-2 badge badge-gold px-4 py-2">
-              Distributed by DistroKid • $20/yr
-            </div>
           </div>
         </section>
 
-        {/* Streaming Platforms */}
-        <section className="max-w-4xl mx-auto py-8 px-4">
-          <div className="flex flex-wrap justify-center gap-3">
-            {[
-              { name: "Spotify", icon: "🟢" },
-              { name: "Apple Music", icon: "🍎" },
-              { name: "YouTube Music", icon: "🔴" },
-              { name: "Tidal", icon: "🔵" },
-              { name: "Amazon Music", icon: "🟠" },
-              { name: "SoundCloud", icon: "🟧" },
-            ].map((p) => (
-              <a
-                key={p.name}
-                href="#"
-                className="btn-sin-secondary text-xs py-2 px-4"
-              >
-                {p.icon} {p.name}
-              </a>
+        {/* Divider */}
+        <div className="h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+
+        {/* Tracks */}
+        <section className="px-4 md:px-8 py-16">
+          <div className="max-w-4xl mx-auto space-y-8">
+            {SONGS.map((song) => (
+              <div key={song.id} className="sin-card">
+                <div className="flex flex-col md:flex-row gap-8">
+                  {/* Cover */}
+                  <div className="w-full md:w-40 h-40 bg-charcoal flex-shrink-0 flex items-center justify-center border border-gold/30">
+                    <span className="text-4xl font-light text-gold">
+                      {song.id}
+                    </span>
+                  </div>
+
+                  {/* Info */}
+                  <div className="flex-1 space-y-4">
+                    <div>
+                      <h3 className="text-xl font-light tracking-wide">
+                        {song.title}
+                      </h3>
+                      <p className="text-sm font-light text-off-white/60">
+                        {song.artist}
+                      </p>
+                    </div>
+
+                    <div className="flex flex-wrap gap-6 text-xs font-light text-off-white/50">
+                      <span>{song.genre}</span>
+                      <span>{song.mood}</span>
+                      <span>{song.duration}</span>
+                    </div>
+
+                    {/* Controls */}
+                    <div className="flex gap-4 pt-4">
+                      <button
+                        onClick={() => setPlaying(playing === song.id ? null : song.id)}
+                        className="btn-sin-primary text-xs"
+                      >
+                        {playing === song.id ? "Pause" : "Play"}
+                      </button>
+                      <button
+                        onClick={() => setShowLyrics(showLyrics === song.id ? null : song.id)}
+                        className="btn-sin-secondary text-xs"
+                      >
+                        {showLyrics === song.id ? "Hide" : "Lyrics"}
+                      </button>
+                    </div>
+
+                    {/* Lyrics */}
+                    {showLyrics === song.id && (
+                      <div className="mt-6 pt-6 border-t border-gold/20">
+                        <pre className="font-mono text-xs font-light text-off-white/60 leading-relaxed whitespace-pre-wrap">
+                          {song.lyrics}
+                        </pre>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </section>
 
-        <div className="divider-sin max-w-4xl mx-auto" />
-
-        {/* Songs with Lyrics */}
-        <section className="max-w-4xl mx-auto py-12 px-4 space-y-8">
-          <h2 className="font-playfair text-3xl text-center">
-            <span className="gradient-sinful">3 Complete Songs</span>
-          </h2>
-
-          {SONGS.map((song) => (
-            <div key={song.id} className="sin-card space-y-6">
-              <div className="flex flex-col sm:flex-row gap-6">
-                <div className="w-full sm:w-40 h-40 rounded-xl bg-gradient-to-br from-hot-pink/30 via-royal-purple/40 to-sacred-gold/20 flex-shrink-0 flex items-center justify-center">
-                  <span className="text-6xl">🎵</span>
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-playfair text-2xl mb-1">{song.title}</h3>
-                  <p className="text-sm text-hot-pink mb-2">{song.artist}</p>
-                  <div className="flex gap-2 mb-4">
-                    <span className="badge badge-pink">{song.genre}</span>
-                    <span className="badge badge-purple">{song.mood}</span>
-                    <span className="badge badge-gold">{song.duration}</span>
-                  </div>
-                  <div className="flex gap-3">
-                    <button
-                      onClick={() => setPlaying(playing === song.id ? null : song.id)}
-                      className="btn-sin-primary text-xs py-2 px-5"
-                    >
-                      {playing === song.id ? "⏸ Pause" : "▶ Play Preview"}
-                    </button>
-                    <button
-                      onClick={() => setShowLyrics(showLyrics === song.id ? null : song.id)}
-                      className="btn-sin-secondary text-xs py-2 px-5"
-                    >
-                      {showLyrics === song.id ? "Hide Lyrics" : "📜 Lyrics"}
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              {showLyrics === song.id && (
-                <div className="bg-dark-velvet/50 rounded-xl p-6 border border-hot-pink/10">
-                  <h4 className="font-playfair text-lg gradient-pink mb-4">Lyrics</h4>
-                  <pre className="font-handwritten text-lg text-blush/70 whitespace-pre-wrap leading-relaxed">
-                    {song.lyrics}
-                  </pre>
-                </div>
-              )}
-            </div>
-          ))}
-        </section>
-
-        <div className="divider-sin max-w-4xl mx-auto" />
-
-        {/* Physical Music */}
-        <section className="max-w-4xl mx-auto py-16 px-4">
-          <h2 className="font-playfair text-3xl text-center mb-12">
-            <span className="gradient-gold">Physical Releases</span>
-          </h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { name: "Vinyl LP", price: "$34.99", icon: "💿", desc: "180g vinyl, gold sleeve" },
-              { name: "Limited CD", price: "$19.99", icon: "💽", desc: "Jewel case, signed insert" },
-              { name: "Digital Album", price: "$9.99", icon: "🎧", desc: "FLAC + MP3, instant download" },
-            ].map((item, i) => (
-              <div key={i} className="sin-card text-center space-y-4">
-                <span className="text-5xl">{item.icon}</span>
-                <h3 className="font-playfair text-xl">{item.name}</h3>
-                <p className="text-sm text-blush/60">{item.desc}</p>
-                <p className="font-playfair text-2xl gradient-gold">{item.price}</p>
-                <Link href="/merch?category=digital-products" className="btn-sin-primary inline-block text-xs py-2">
-                  Buy Now
-                </Link>
-              </div>
-            ))}
+        {/* CTA */}
+        <section className="px-4 md:px-8 py-32 border-t border-gold/20">
+          <div className="max-w-2xl mx-auto text-center space-y-8">
+            <h2 className="text-2xl font-light tracking-wide">
+              Stream everywhere.
+            </h2>
+            <p className="text-sm font-light text-off-white/60">
+              Spotify, Apple Music, YouTube Music, and all major platforms.
+            </p>
           </div>
         </section>
+
       </main>
     </>
   );

@@ -93,7 +93,7 @@ export default function EnterPage() {
         <div className="flex justify-center gap-6">
           {[
             { name: "Free", icon: "🙏", desc: "Confess & Browse" },
-            { name: "Member", icon: "🔥", desc: "$19/mo" },
+            { name: "Member", icon: "", desc: "$19/mo" },
             { name: "Inner Circle", icon: "👑", desc: "$49/mo" },
           ].map((tier) => (
             <div key={tier.name} className="text-center opacity-60 hover:opacity-100 transition-opacity">

@@ -7,20 +7,20 @@ import Link from "next/link";
 
 const SEARCH_INDEX = [
   // Episodes
-  { type: "episode", title: "Confessions of a Serial Liker", desc: "Cookie Mami reads your thirstiest digital confessions", href: "/podcast/1", icon: "🎙️" },
-  { type: "episode", title: "Holy Ghosted: When God Left You on Read", desc: "Why prayer feels like texting someone with read receipts off", href: "/podcast/2", icon: "🎙️" },
-  { type: "episode", title: "Confessions of a Doubter", desc: "Testimonial about wrestling with faith", href: "/podcast/3", icon: "🎙️" },
+  { type: "episode", title: "Confessions of a Serial Liker", desc: "Cookie Mami reads your thirstiest digital confessions", href: "/podcast/1", icon: "" },
+  { type: "episode", title: "Holy Ghosted: When God Left You on Read", desc: "Why prayer feels like texting someone with read receipts off", href: "/podcast/2", icon: "" },
+  { type: "episode", title: "Confessions of a Doubter", desc: "Testimonial about wrestling with faith", href: "/podcast/3", icon: "" },
   // Merch
-  { type: "merch", title: "Forgive Me Daddy Tee", desc: "Classic fit, sinfully soft cotton — $29.99", href: "/merch/a1", icon: "👕" },
-  { type: "merch", title: "Cookie Mami Hoodie", desc: "Oversized, cozy, sinful — $54.99", href: "/merch/a7", icon: "🧥" },
-  { type: "merch", title: "Cookie Mami's Signature Cookie Box", desc: "12 artisan cookies — $29.99", href: "/merch/f1", icon: "🍪" },
-  { type: "merch", title: "Holy Night Lace Set", desc: "Bralette + thong, black lace — $49.99", href: "/merch/l1", icon: "🖤" },
-  { type: "merch", title: "Holy Vibrations Smart Vibe", desc: "App-controlled, 10 patterns — $79.99", href: "/merch/t1", icon: "🔥" },
-  { type: "merch", title: "Repent Paddle", desc: "Leather paddle, leaves REPENT — $29.99", href: "/merch/t5", icon: "⛓️" },
+  { type: "merch", title: "Forgive Me Daddy Tee", desc: "Classic fit, sinfully soft cotton — $29.99", href: "/merch/a1", icon: "" },
+  { type: "merch", title: "Cookie Mami Hoodie", desc: "Oversized, cozy, sinful — $54.99", href: "/merch/a7", icon: "" },
+  { type: "merch", title: "Cookie Mami's Signature Cookie Box", desc: "12 artisan cookies — $29.99", href: "/merch/f1", icon: "" },
+  { type: "merch", title: "Holy Night Lace Set", desc: "Bralette + thong, black lace — $49.99", href: "/merch/l1", icon: "" },
+  { type: "merch", title: "Holy Vibrations Smart Vibe", desc: "App-controlled, 10 patterns — $79.99", href: "/merch/t1", icon: "" },
+  { type: "merch", title: "Repent Paddle", desc: "Leather paddle, leaves REPENT — $29.99", href: "/merch/t5", icon: "" },
   // Music
-  { type: "music", title: "Confess (feat. Cookie Mami)", desc: "Dark R&B — 3:42", href: "/music/1", icon: "🎵" },
-  { type: "music", title: "Holy Water", desc: "Gospel Trap — 4:15", href: "/music/2", icon: "🎵" },
-  { type: "music", title: "Pray Position", desc: "Bedroom Pop — 3:28", href: "/music/3", icon: "🎵" },
+  { type: "music", title: "Confess (feat. Cookie Mami)", desc: "Dark R&B — 3:42", href: "/music/1", icon: "" },
+  { type: "music", title: "Holy Water", desc: "Gospel Trap — 4:15", href: "/music/2", icon: "" },
+  { type: "music", title: "Pray Position", desc: "Bedroom Pop — 3:28", href: "/music/3", icon: "" },
   // Scriptures
   { type: "scripture", title: "The Book of First Clicks", desc: "And Cookie Mami said: Let there be WiFi", href: "/book#scripture-1", icon: "📜" },
   { type: "scripture", title: "Commandment of the Screen", desc: "Thou shalt not screenshot and share. Unless it's funny.", href: "/book#scripture-3", icon: "📜" },
@@ -94,7 +94,7 @@ function SearchResults() {
             </div>
           ) : query.trim().length >= 2 ? (
             <div className="text-center py-16 space-y-4">
-              <div className="text-6xl">🍪</div>
+              <div className="text-6xl"></div>
               <p className="font-playfair text-2xl text-blush/60">No results found</p>
               <p className="font-handwritten text-xl text-neon-pink">
                 &ldquo;Cookie Mami hasn&apos;t made that yet. But give it time.&rdquo;

@@ -5,10 +5,10 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 
 const MOCK_MESSAGES = [
-  { id: 1, user: "sinner_99", text: "Cookie Mami I have a confession 🔥", time: "just now" },
+  { id: 1, user: "sinner_99", text: "Cookie Mami I have a confession ", time: "just now" },
   { id: 2, user: "holyfan42", text: "this is SO good", time: "1m" },
   { id: 3, user: "repent_daily", text: "first time here and I'm already a changed person", time: "2m" },
-  { id: 4, user: "cookie_devotee", text: "COOKIE MAMI WE LOVE YOU 🍪🍪🍪", time: "3m" },
+  { id: 4, user: "cookie_devotee", text: "COOKIE MAMI WE LOVE YOU ", time: "3m" },
   { id: 5, user: "late_night_scroller", text: "I confessed last week and she read mine on air 😭", time: "4m" },
 ];
 
@@ -63,7 +63,7 @@ export default function LivePage() {
                 <div className="absolute inset-0 flex flex-col items-center justify-center space-y-6 bg-gradient-to-br from-deep-plum via-dark-velvet to-black">
                   {/* Mux player placeholder */}
                   <div className="text-center space-y-4">
-                    <div className="text-8xl animate-float">🍪</div>
+                    <div className="text-8xl animate-float"></div>
                     <p className="font-playfair text-2xl gradient-pink">Cookie Mami is LIVE</p>
                     <p className="text-sm text-blush/60 max-w-sm">
                       Connect your Mux stream key to go live. Add <code className="text-hot-pink">MUX_STREAM_KEY</code> to env vars.
@@ -125,7 +125,7 @@ export default function LivePage() {
                 <div key={msg.id} className="group">
                   <div className="flex items-start gap-2">
                     <span className="text-lg flex-shrink-0">
-                      {msg.user === "you" ? "🍪" : "😈"}
+                      {msg.user === "you" ? "" : "😈"}
                     </span>
                     <div className="flex-1 min-w-0">
                       <span className={`text-xs font-bold mr-2 ${msg.user === "you" ? "text-sacred-gold" : "text-hot-pink"}`}>

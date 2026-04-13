@@ -5,85 +5,94 @@ import ConfessionForm from "@/components/ConfessionForm";
 import Link from "next/link";
 
 const RECENT_CONFESSIONS = [
-  { text: "I have 47 browser tabs open and I refuse to close any of them.", category: "screen_time", cookie_response: "That's not a confession, that's a cry for help. 47? ROOKIE NUMBERS. 🍪", prayers: 23 },
-  { text: "I liked my ex's photo from 2019 at 3am and then unliked it but they already saw.", category: "late_night", cookie_response: "Baby, that's not a sin... that's a CRIME. Go to internet jail. 🚔", prayers: 45 },
-  { text: "I've been using my roommate's Netflix password for 4 years. They moved out 2 years ago.", category: "subscription", cookie_response: "Resourceful. Cookie Mami respects the hustle. Say 2 Hail Cookies and carry on. 🍪", prayers: 67 },
-  { text: "I pretend to be on mute during Zoom calls but I'm actually eating cereal.", category: "other", cookie_response: "We ALL do that. The real sin is that you're eating cereal and not my cookies. 🍪💅", prayers: 31 },
-  { text: "I've been telling everyone I read that book but I only watched the TikTok summary.", category: "guilty_search", cookie_response: "Honey, that's basically a PhD in 2024. You're fine. Now buy a t-shirt. 👕", prayers: 52 },
-  { text: "I used my boss's corporate card to buy the premium version of a dating app.", category: "subscription", cookie_response: "CHAOTIC. I love it. Your penance is finding love AND keeping the job. Good luck. 😈🔥", prayers: 89 },
+  { text: "I have 47 browser tabs open and I refuse to close any of them.", category: "screen_time", cookie_response: "That's not a confession. That's a cry for help. Rookie numbers.", prayers: 23 },
+  { text: "I liked my ex's photo from 2019 at 3am and then unliked it but they already saw.", category: "late_night", cookie_response: "That's not a sin. That's a crime. Go to internet jail.", prayers: 45 },
+  { text: "I've been using my roommate's Netflix password for 4 years. They moved out 2 years ago.", category: "subscription", cookie_response: "Resourceful. Cookie Mami respects the hustle. Say 2 Hail Cookies and carry on.", prayers: 67 },
+  { text: "I pretend to be on mute during Zoom calls but I'm actually eating cereal.", category: "other", cookie_response: "We all do that. The real sin is that you're eating cereal and not my cookies.", prayers: 31 },
+  { text: "I've been telling everyone I read that book but I only watched the TikTok summary.", category: "guilty_search", cookie_response: "Basically a PhD in 2024. You're fine. Now buy a t-shirt.", prayers: 52 },
+  { text: "I used my boss's corporate card to buy the premium version of a dating app.", category: "subscription", cookie_response: "Chaotic energy. Your penance is finding love AND keeping the job.", prayers: 89 },
 ];
 
 export default function ConfessionsPage() {
   return (
     <>
       <Navigation />
-      <main className="min-h-screen pt-16">
+      <main className="min-h-screen bg-black pt-16">
+        
         {/* Header */}
-        <section className="relative py-20 px-4 overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="absolute top-0 left-1/3 w-72 h-72 bg-hot-pink/10 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 right-1/3 w-72 h-72 bg-royal-purple/20 rounded-full blur-3xl" />
-          </div>
-          <div className="relative max-w-4xl mx-auto text-center space-y-6">
-            <div className="text-7xl animate-float">🔥</div>
-            <h1 className="font-playfair text-5xl md:text-6xl font-black">
-              <span className="gradient-pink">The Confessional</span>
+        <section className="px-4 md:px-8 py-32">
+          <div className="max-w-4xl mx-auto text-center space-y-12">
+            <h1 className="text-4xl md:text-6xl font-thin tracking-widest">
+              Confessional
             </h1>
-            <p className="text-xl text-blush/80">
-              Step into the booth. Confess your digital sins to Cookie Mami.
-              She&apos;ll respond with divine sass, questionable wisdom, and maybe a cookie.
+            <p className="text-base md:text-lg font-light text-off-white/70 max-w-2xl mx-auto">
+              Step into sacred space. Share your truth without shame. Cookie Mami listens.
             </p>
           </div>
         </section>
 
-        {/* Confession Form */}
-        <section className="max-w-2xl mx-auto py-12 px-4">
-          <ConfessionForm />
+        {/* Form */}
+        <section className="px-4 md:px-8 py-16 border-t border-gold/20">
+          <div className="max-w-2xl mx-auto">
+            <ConfessionForm />
+          </div>
         </section>
 
-        <div className="divider-sin max-w-4xl mx-auto" />
+        {/* Divider */}
+        <div className="h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent my-16" />
 
-        {/* Recent Confessions (Community Wall) */}
-        <section className="max-w-6xl mx-auto py-16 px-4">
-          <h2 className="font-playfair text-3xl text-center mb-12">
-            <span className="gradient-gold">The Wall of Sin</span>
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {RECENT_CONFESSIONS.map((confession, i) => (
-              <div key={i} className="sin-card space-y-4">
-                <p className="text-blush/80 italic">&ldquo;{confession.text}&rdquo;</p>
-                <div className="cookie-bubble !p-4">
-                  <p className="font-handwritten text-lg text-neon-pink">
-                    🍪 {confession.cookie_response}
+        {/* Wall of Confessions */}
+        <section className="px-4 md:px-8 py-16">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl font-light tracking-wide text-center mb-16">
+              Shared Confessions
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              {RECENT_CONFESSIONS.map((confession, i) => (
+                <div key={i} className="sin-card space-y-6">
+                  <p className="text-base font-light text-off-white/70 italic">
+                    {confession.text}
                   </p>
+                  <div className="pt-4 border-t border-gold/20 space-y-3">
+                    <p className="text-sm font-light text-gold">
+                      From Cookie Mami:
+                    </p>
+                    <p className="text-sm font-light text-off-white/60">
+                      {confession.cookie_response}
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-between text-xs font-light text-off-white/40 pt-4">
+                    <button className="hover:text-gold transition-colors">
+                      Prayer ({confession.prayers})
+                    </button>
+                    <span>Anonymous</span>
+                  </div>
                 </div>
-                <div className="flex items-center justify-between text-xs text-blush/40">
-                  <button className="hover:text-hot-pink transition-colors">
-                    🙏 Praying ({confession.prayers})
-                  </button>
-                  <span>Anonymous Sinner</span>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </section>
 
         {/* CTA */}
-        <section className="py-16 px-4 text-center">
-          <div className="max-w-2xl mx-auto space-y-6">
-            <p className="font-handwritten text-3xl text-neon-pink">
-              &ldquo;The booth is always open. Cookie Mami never sleeps.&rdquo; 🍪
+        <section className="px-4 md:px-8 py-32 border-t border-gold/20">
+          <div className="max-w-2xl mx-auto text-center space-y-8">
+            <h2 className="text-2xl font-light tracking-wide">
+              The booth is always open.
+            </h2>
+            <p className="text-sm font-light text-off-white/60">
+              Your voice. Your truth. No judgment.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/merch" className="btn-sin-gold">
-                Buy Penance Merch 🛍️
+            <div className="flex flex-col md:flex-row gap-4 justify-center">
+              <Link href="/merch" className="btn-sin-primary">
+                Shop
               </Link>
               <Link href="/podcast" className="btn-sin-secondary">
-                Hear Confessions on Air 🎙️
+                Listen on Podcast
               </Link>
             </div>
           </div>
         </section>
+
       </main>
     </>
   );

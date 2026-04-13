@@ -36,7 +36,7 @@ const TIERS = [
     name: "Member",
     price: "$19",
     period: "/month",
-    icon: "🔥",
+    icon: "",
     color: "border-hot-pink/60",
     badge: "badge-pink",
     featured: true,
@@ -162,7 +162,7 @@ export default function MembershipPage() {
                   <div className="space-y-3">
                     {tier.features.map((f) => (
                       <div key={f} className="flex items-start gap-3 text-sm">
-                        <span className="text-hot-pink flex-shrink-0 mt-0.5">✓</span>
+                        <span className="text-hot-pink flex-shrink-0 mt-0.5"></span>
                         <span className="text-blush/80">{f}</span>
                       </div>
                     ))}

@@ -5,7 +5,7 @@ interface SocialLinksProps {
 
 const SOCIALS = [
   { name: "Instagram", href: "https://instagram.com/confessionalbooth", icon: "📸", handle: "@confessionalbooth" },
-  { name: "TikTok", href: "https://tiktok.com/@confessionalbooth", icon: "🎵", handle: "@confessionalbooth" },
+  { name: "TikTok", href: "https://tiktok.com/@confessionalbooth", icon: "", handle: "@confessionalbooth" },
   { name: "Twitter / X", href: "https://twitter.com/confessionalbooth", icon: "🐦", handle: "@confessionalbooth" },
   { name: "YouTube", href: "https://youtube.com/@confessionalbooth", icon: "📺", handle: "@confessionalbooth" },
   { name: "Spotify", href: "https://open.spotify.com/artist/confessionalbooth", icon: "🟢", handle: "Confessional Booth" },

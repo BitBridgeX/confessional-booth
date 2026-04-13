@@ -110,7 +110,7 @@ export default function AuthModal({ onClose, defaultMode = "signin" }: AuthModal
           )}
 
           <button type="submit" disabled={loading} className="btn-sin-primary w-full text-lg py-4 disabled:opacity-50">
-            {loading ? "🍪 Checking your sins..." : mode === "signin" ? "Enter the Booth" : "Join the Congregation"}
+            {loading ? " Checking your sins..." : mode === "signin" ? "Enter the Booth" : "Join the Congregation"}
           </button>
         </form>
 

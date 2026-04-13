@@ -24,7 +24,7 @@ export default async function EpisodePage({ params }: { params: Promise<{ id: st
             </Link>
             <div className="flex flex-col md:flex-row gap-8">
               <div className="w-full md:w-48 h-48 rounded-2xl bg-gradient-to-br from-hot-pink/30 via-royal-purple/40 to-sacred-gold/20 flex-shrink-0 flex items-center justify-center text-6xl">
-                🎙️
+                
               </div>
               <div className="flex-1 space-y-4">
                 <span className="badge badge-pink">Episode #{episode.id}</span>
@@ -33,7 +33,7 @@ export default async function EpisodePage({ params }: { params: Promise<{ id: st
                 <div className="flex flex-wrap gap-4 text-sm text-blush/50">
                   <span>📅 {episode.date}</span>
                   <span>⏱️ {episode.duration}</span>
-                  <span>🎤 {episode.guests}</span>
+                  <span> {episode.guests}</span>
                 </div>
               </div>
             </div>
@@ -45,7 +45,7 @@ export default async function EpisodePage({ params }: { params: Promise<{ id: st
           <div className="sin-card space-y-4">
             <h3 className="font-playfair text-xl gradient-pink">Now Playing</h3>
             <div className="bg-dark-velvet rounded-xl p-6 text-center space-y-4">
-              <div className="text-6xl animate-float">🎙️</div>
+              <div className="text-6xl animate-float"></div>
               <p className="text-sm text-blush/50">Connect Buzzsprout to enable audio playback</p>
               <div className="flex justify-center gap-4">
                 <button className="btn-sin-primary text-sm py-2">▶ Play</button>
@@ -75,10 +75,10 @@ export default async function EpisodePage({ params }: { params: Promise<{ id: st
         <section className="max-w-4xl mx-auto px-4 py-12 text-center space-y-6">
           <div className="divider-sin mb-8" />
           <p className="font-handwritten text-2xl text-neon-pink">
-            &ldquo;Got something to confess? I might read it on the next episode...&rdquo; 🍪
+            &ldquo;Got something to confess? I might read it on the next episode...&rdquo; 
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/confessions" className="btn-sin-primary">Submit a Confession 🔥</Link>
+            <Link href="/confessions" className="btn-sin-primary">Submit a Confession </Link>
             <Link href="/podcast" className="btn-sin-secondary">More Episodes</Link>
           </div>
         </section>

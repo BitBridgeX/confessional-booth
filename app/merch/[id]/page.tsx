@@ -6,17 +6,17 @@ import { useState } from "react";
 
 // Quick product lookup — in production this comes from Supabase
 const PRODUCT_DATA: Record<string, any> = {
-  a1: { name: "\"Forgive Me Daddy\" Tee", price: 29.99, icon: "👕", category: "Apparel", description: "Classic fit, sinfully soft 100% cotton. Pre-shrunk. Machine washable. Arrives blessed by Cookie Mami herself (not really, but close).", sizes: ["XS","S","M","L","XL","XXL"], colors: ["Black","White","Deep Plum"], reviews: 47 },
-  l1: { name: "\"Holy Night\" Lace Set", price: 49.99, icon: "🖤", category: "Lingerie & Intimates", description: "Delicate black lace bralette + thong set. Adjustable straps, hook-and-eye closure. Because your body is a temple and temples deserve nice things.", sizes: ["XS","S","M","L","XL"], colors: ["Black","Red"], reviews: 89 },
-  t1: { name: "\"Holy Vibrations\" Smart Vibe", price: 79.99, icon: "🔥", category: "Adult Toys & Pleasure", description: "App-controlled with 10 vibration patterns. Whisper-quiet motor. USB rechargeable. 100% body-safe silicone. Ships in discreet packaging.", sizes: ["One Size"], colors: ["Pink","Purple"], reviews: 134 },
-  f1: { name: "Cookie Mami's Signature Box", price: 29.99, icon: "🍪", category: "Food Products", description: "12 artisan cookies, mixed flavors. Chocolate chip, red velvet, snickerdoodle, and the secret fourth flavor Cookie Mami won't reveal. Ships in 2-3 days.", sizes: ["12-pack","24-pack","48-pack"], colors: [], reviews: 203 },
+  a1: { name: "\"Forgive Me Daddy\" Tee", price: 29.99, icon: "", category: "Apparel", description: "Classic fit, sinfully soft 100% cotton. Pre-shrunk. Machine washable. Arrives blessed by Cookie Mami herself (not really, but close).", sizes: ["XS","S","M","L","XL","XXL"], colors: ["Black","White","Deep Plum"], reviews: 47 },
+  l1: { name: "\"Holy Night\" Lace Set", price: 49.99, icon: "", category: "Lingerie & Intimates", description: "Delicate black lace bralette + thong set. Adjustable straps, hook-and-eye closure. Because your body is a temple and temples deserve nice things.", sizes: ["XS","S","M","L","XL"], colors: ["Black","Red"], reviews: 89 },
+  t1: { name: "\"Holy Vibrations\" Smart Vibe", price: 79.99, icon: "", category: "Adult Toys & Pleasure", description: "App-controlled with 10 vibration patterns. Whisper-quiet motor. USB rechargeable. 100% body-safe silicone. Ships in discreet packaging.", sizes: ["One Size"], colors: ["Pink","Purple"], reviews: 134 },
+  f1: { name: "Cookie Mami's Signature Box", price: 29.99, icon: "", category: "Food Products", description: "12 artisan cookies, mixed flavors. Chocolate chip, red velvet, snickerdoodle, and the secret fourth flavor Cookie Mami won't reveal. Ships in 2-3 days.", sizes: ["12-pack","24-pack","48-pack"], colors: [], reviews: 203 },
 };
 
 export default function ProductPage({ params }: { params: { id: string } }) {
   const product = PRODUCT_DATA[params.id] || {
     name: "Sacred Product",
     price: 29.99,
-    icon: "🛍️",
+    icon: "",
     category: "Merch",
     description: "A sinful product from the Confessional Booth collection. Each one blessed (cursed?) by Cookie Mami.",
     sizes: ["S","M","L","XL"],
@@ -147,10 +147,10 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                   onClick={handleAddToCart}
                   className={`w-full btn-sin-primary text-lg py-5 ${added ? "bg-green-600" : ""}`}
                 >
-                  {added ? "✓ Added to Cart!" : `Add to Cart — $${(product.price * qty).toFixed(2)}`}
+                  {added ? " Added to Cart!" : `Add to Cart — $${(product.price * qty).toFixed(2)}`}
                 </button>
                 <Link href="/merch/checkout" className="block w-full btn-sin-gold text-center text-lg py-5">
-                  Buy Now 🍪
+                  Buy Now 
                 </Link>
               </div>
 
@@ -158,7 +158,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
               <div className="grid grid-cols-3 gap-3 pt-4">
                 {[
                   { icon: "🔒", text: "Secure Checkout" },
-                  { icon: "📦", text: "Discreet Shipping" },
+                  { icon: "", text: "Discreet Shipping" },
                   { icon: "↩️", text: "Easy Returns" },
                 ].map(b => (
                   <div key={b.text} className="text-center p-3 bg-hot-pink/5 rounded-xl">
@@ -173,7 +173,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
           {/* Cookie Mami's Take */}
           <div className="mt-16 cookie-bubble max-w-2xl">
             <div className="flex items-center gap-3 mb-3">
-              <span className="text-4xl">🍪</span>
+              <span className="text-4xl"></span>
               <p className="font-playfair text-lg gradient-pink">Cookie Mami says...</p>
             </div>
             <p className="font-handwritten text-xl text-neon-pink">

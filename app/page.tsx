@@ -11,10 +11,10 @@ export default function Home() {
       <main className="min-h-screen bg-black text-cream">
 
         {/* HERO */}
-        <section className="relative px-4 md:px-8 py-40 md:py-56">
+        <section className="relative px-4 md:px-8 py-40 md:py-48">
           <div className="max-w-4xl mx-auto text-center space-y-16">
-            <div className="flex justify-center mb-8">
-              <CookieMamiAvatar size={100} className="opacity-95" />
+            <div className="flex justify-center mb-12">
+              <CookieMamiAvatar size={240} className="opacity-100" />
             </div>
 
             <div className="space-y-8">

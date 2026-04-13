@@ -5,8 +5,8 @@ import Link from "next/link";
 import { useState } from "react";
 
 const MOCK_CART = [
-  { id: "a1", name: "\"Forgive Me Daddy\" Tee", price: 29.99, qty: 1, icon: "👕", size: "M", color: "Black" },
-  { id: "f1", name: "Cookie Mami's Signature Box", price: 29.99, qty: 2, icon: "🍪", size: "12-pack", color: "" },
+  { id: "a1", name: "\"Forgive Me Daddy\" Tee", price: 29.99, qty: 1, icon: "", size: "M", color: "Black" },
+  { id: "f1", name: "Cookie Mami's Signature Box", price: 29.99, qty: 2, icon: "", size: "12-pack", color: "" },
 ];
 
 export default function CheckoutPage() {
@@ -153,14 +153,14 @@ export default function CheckoutPage() {
 
                   <div className="cookie-bubble">
                     <p className="font-handwritten text-xl text-neon-pink">
-                      🍪 &ldquo;Are you SURE? Cookie Mami approves of all of these choices. Place that order, baby.&rdquo;
+                       &ldquo;Are you SURE? Cookie Mami approves of all of these choices. Place that order, baby.&rdquo;
                     </p>
                   </div>
 
                   <div className="flex gap-4">
                     <button onClick={() => setStep("details")} className="btn-sin-secondary flex-1">← Back</button>
                     <button className="btn-sin-gold flex-1 text-lg">
-                      Place Order — ${total.toFixed(2)} 🍪
+                      Place Order — ${total.toFixed(2)} 
                     </button>
                   </div>
                   <p className="text-xs text-center text-blush/30">

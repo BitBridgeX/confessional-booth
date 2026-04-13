@@ -147,7 +147,7 @@ export default function TrackPage({ params }: { params: { id: string } }) {
             </Link>
             <div className="flex flex-col md:flex-row gap-8 mb-12">
               <div className="w-full md:w-64 h-64 rounded-2xl bg-gradient-to-br from-sacred-gold/30 via-hot-pink/20 to-royal-purple/40 flex-shrink-0 flex items-center justify-center text-8xl">
-                🎵
+                
               </div>
               <div className="flex-1 space-y-4">
                 <h1 className="font-playfair text-4xl font-bold">{song.title}</h1>
@@ -190,7 +190,7 @@ export default function TrackPage({ params }: { params: { id: string } }) {
         <section className="max-w-4xl mx-auto px-4 py-12 text-center">
           <div className="divider-sin mb-12" />
           <Link href="/merch?category=Digital+Products" className="btn-sin-gold inline-block mr-4">
-            Buy This Track 🎵
+            Buy This Track 
           </Link>
           <Link href="/music" className="btn-sin-secondary inline-block">
             More Music

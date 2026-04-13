@@ -28,7 +28,7 @@ export default function ProfilePage() {
 
   if (!user) return null;
 
-  const tierIcon = { free: "🙏", member: "🔥", "inner-circle": "👑" }[user.tier];
+  const tierIcon = { free: "🙏", member: "", "inner-circle": "👑" }[user.tier];
   const tierLabel = { free: "Free Sinner", member: "Member", "inner-circle": "Inner Circle" }[user.tier];
   const tierColor = { free: "text-blush/60", member: "text-hot-pink", "inner-circle": "text-sacred-gold" }[user.tier];
 
@@ -64,8 +64,8 @@ export default function ProfilePage() {
           {/* Quick stats */}
           <div className="grid grid-cols-3 gap-4">
             {[
-              { label: "Confessions", value: "2", icon: "🔥" },
-              { label: "Orders", value: "3", icon: "🛍️" },
+              { label: "Confessions", value: "2", icon: "" },
+              { label: "Orders", value: "3", icon: "" },
               { label: "Prayers Given", value: "47", icon: "🙏" },
             ].map((stat) => (
               <div key={stat.label} className="sin-card text-center space-y-2">

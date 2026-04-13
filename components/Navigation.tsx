@@ -7,7 +7,7 @@ import AuthModal from "./AuthModal";
 
 const SOCIAL = [
   { name: "Instagram", href: "https://instagram.com/confessionalbooth", icon: "📸" },
-  { name: "TikTok", href: "https://tiktok.com/@confessionalbooth", icon: "🎵" },
+  { name: "TikTok", href: "https://tiktok.com/@confessionalbooth", icon: "" },
   { name: "Twitter", href: "https://twitter.com/confessionalbooth", icon: "🐦" },
   { name: "OnlyFans", href: "https://onlyfans.com/cookiemami", icon: "🔞" },
 ];
@@ -22,11 +22,11 @@ export default function Navigation() {
 
   const links = [
     { href: "/live", label: "Live", icon: "🔴", badge: "LIVE" },
-    { href: "/confessions", label: "Confess", icon: "🔥" },
-    { href: "/podcast", label: "Podcast", icon: "🎙️" },
-    { href: "/music", label: "Music", icon: "🎵" },
-    { href: "/merch", label: "Merch", icon: "🛍️" },
-    { href: "/book", label: "Book", icon: "📖" },
+    { href: "/confessions", label: "Confess", icon: "" },
+    { href: "/podcast", label: "Podcast", icon: "" },
+    { href: "/music", label: "Music", icon: "" },
+    { href: "/merch", label: "Merch", icon: "" },
+    { href: "/book", label: "Book", icon: "" },
   ];
 
   function openSignIn() { setAuthMode("signin"); setShowAuth(true); setIsOpen(false); }
@@ -43,7 +43,7 @@ export default function Navigation() {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-2 group">
-              <span className="text-2xl">🍪</span>
+              <span className="text-2xl"></span>
               <span className="font-playfair text-xl font-bold hidden sm:block">
                 <span className="gradient-pink">Confessional</span>
                 <span className="gradient-gold"> Booth</span>
@@ -84,7 +84,7 @@ export default function Navigation() {
               {user ? (
                 <div className="relative group">
                   <button className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-hot-pink/10 hover:bg-hot-pink/20 transition-colors">
-                    <span className="text-lg">🍪</span>
+                    <span className="text-lg"></span>
                     <span className={`text-xs font-bold hidden sm:block ${tierColors[user.tier]}`}>
                       {user.name.split(" ")[0]}
                     </span>
@@ -98,7 +98,7 @@ export default function Navigation() {
                       👑 Membership
                     </Link>
                     <Link href="/profile#orders" className="block px-3 py-2 text-sm text-blush/80 hover:text-hot-pink hover:bg-hot-pink/10 rounded-lg">
-                      🛍️ Orders
+                       Orders
                     </Link>
                     <div className="border-t border-hot-pink/10 my-1" />
                     <button
@@ -186,7 +186,7 @@ export default function Navigation() {
                       Sign In
                     </button>
                     <button onClick={openSignUp} className="mx-4 btn-sin-primary w-[calc(100%-32px)] text-center">
-                      Join Free 🍪
+                      Join Free 
                     </button>
                   </>
                 ) : (
