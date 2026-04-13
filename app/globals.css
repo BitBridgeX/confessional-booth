@@ -1,23 +1,28 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700;800;900&family=Inter:wght@100;300;400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --hot-pink: #FF1493;
-  --hot-pink-dark: #C71168;
-  --neon-pink: #FF6EC7;
-  --deep-plum: #1A0A1E;
-  --dark-velvet: #0D0610;
-  --royal-purple: #6B21A8;
+  /* Core luxury palette */
+  --black: #0A0A0A;
+  --charcoal: #1A1A1A;
+  --deep-black: #000000;
+  
+  /* Accents - minimal, refined */
   --gold: #D4AF37;
-  --gold-light: #F0D68A;
-  --cream: #FFF0F5;
-  --blush: #FFB6C1;
-  --latex-black: #111111;
-  --leather-red: #8B0000;
-  --sin-red: #DC143C;
+  --rose-gold: #B76E79;
+  --silver: #C0C0C0;
+  --purple: #3D2645;
+  
+  /* Text */
+  --cream: #F5F5F5;
+  --off-white: #E8E8E8;
+  --grey: #A0A0A0;
+  
+  /* Luxury secondary */
+  --deep-purple: #1A0F1E;
 }
 
 * {
@@ -29,122 +34,126 @@ html {
 }
 
 body {
-  background: linear-gradient(180deg, var(--dark-velvet) 0%, var(--deep-plum) 50%, var(--dark-velvet) 100%);
+  background: var(--black);
   color: var(--cream);
   font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.5px;
 }
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  letter-spacing: 1px;
 }
 
 h1 {
-  @apply text-5xl md:text-7xl font-black tracking-tight;
+  @apply text-5xl md:text-7xl font-thin tracking-widest;
 }
 
 h2 {
-  @apply text-4xl md:text-5xl font-bold;
+  @apply text-3xl md:text-5xl font-light;
 }
 
 h3 {
-  @apply text-2xl md:text-3xl font-semibold;
+  @apply text-xl md:text-2xl font-light;
 }
 
-.font-handwritten {
-  font-family: 'Caveat', cursive;
+p {
+  @apply text-base md:text-lg font-light leading-relaxed;
 }
 
-/* Neon glow effects */
-.neon-text {
-  text-shadow: 0 0 10px var(--hot-pink), 0 0 40px var(--hot-pink), 0 0 80px var(--neon-pink);
+/* Luxury accents */
+.gold-accent {
+  color: var(--gold);
 }
 
-.neon-text-gold {
-  text-shadow: 0 0 10px var(--gold), 0 0 40px var(--gold), 0 0 80px var(--gold-light);
+.rose-accent {
+  color: var(--rose-gold);
 }
 
-.neon-border {
-  box-shadow: 0 0 5px var(--hot-pink), 0 0 20px rgba(255, 20, 147, 0.3), inset 0 0 5px rgba(255, 20, 147, 0.1);
+.subtle-border {
+  border: 1px solid rgba(212, 175, 55, 0.2);
 }
 
-.neon-border-gold {
-  box-shadow: 0 0 5px var(--gold), 0 0 20px rgba(212, 175, 55, 0.3), inset 0 0 5px rgba(212, 175, 55, 0.1);
+.luxury-glow {
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.15);
 }
 
-/* Card system */
+/* Card system - minimal luxury */
 .sin-card {
-  @apply rounded-2xl p-6 transition-all duration-300;
-  background: linear-gradient(145deg, rgba(26, 10, 30, 0.9), rgba(13, 6, 16, 0.95));
-  border: 1px solid rgba(255, 20, 147, 0.15);
-  backdrop-filter: blur(10px);
+  @apply rounded-none p-8 md:p-12 transition-all duration-500;
+  background: var(--charcoal);
+  border: 1px solid rgba(212, 175, 55, 0.15);
 }
 
 .sin-card:hover {
-  border-color: rgba(255, 20, 147, 0.4);
-  transform: translateY(-4px);
-  box-shadow: 0 8px 32px rgba(255, 20, 147, 0.2), 0 0 60px rgba(255, 20, 147, 0.05);
+  border-color: rgba(212, 175, 55, 0.35);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.1);
 }
 
 .merch-card {
-  @apply rounded-2xl overflow-hidden transition-all duration-300;
-  background: linear-gradient(145deg, rgba(26, 10, 30, 0.9), rgba(13, 6, 16, 0.95));
-  border: 1px solid rgba(255, 20, 147, 0.1);
+  @apply rounded-none overflow-hidden transition-all duration-500;
+  background: var(--charcoal);
+  border: 1px solid rgba(212, 175, 55, 0.1);
 }
 
 .merch-card:hover {
-  border-color: var(--hot-pink);
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 12px 40px rgba(255, 20, 147, 0.25);
+  border-color: var(--gold);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.12);
 }
 
-/* Buttons */
+/* Buttons - luxury minimal */
 .btn-sin {
-  @apply px-8 py-4 rounded-full font-bold text-sm uppercase tracking-widest transition-all duration-300;
+  @apply px-8 py-3 rounded-none font-light text-xs uppercase tracking-widest transition-all duration-500;
 }
 
 .btn-sin-primary {
-  @apply btn-sin text-white;
-  background: linear-gradient(135deg, var(--hot-pink) 0%, var(--royal-purple) 100%);
-  box-shadow: 0 4px 20px rgba(255, 20, 147, 0.4);
+  @apply btn-sin;
+  color: var(--cream);
+  background: transparent;
+  border: 1px solid var(--gold);
 }
 
 .btn-sin-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(255, 20, 147, 0.6);
+  background: var(--gold);
+  color: var(--black);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.15);
 }
 
 .btn-sin-secondary {
   @apply btn-sin;
-  border: 2px solid var(--hot-pink);
-  color: var(--hot-pink);
+  border: 1px solid var(--grey);
+  color: var(--grey);
 }
 
 .btn-sin-secondary:hover {
-  background: var(--hot-pink);
-  color: white;
+  background: var(--grey);
+  color: var(--black);
 }
 
 .btn-sin-gold {
-  @apply btn-sin text-black;
-  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
-  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+  @apply btn-sin;
+  color: var(--cream);
+  background: var(--gold);
+  border: 1px solid var(--gold);
 }
 
 .btn-sin-gold:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.6);
+  background: transparent;
+  color: var(--gold);
 }
 
-/* Pulse animations */
-@keyframes pulse-sin {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.7; transform: scale(1.05); }
+/* Subtle animations */
+@keyframes subtle-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
 }
 
-@keyframes float {
+@keyframes gentle-float {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-3px); }
 }
 
 @keyframes glow-pulse {
