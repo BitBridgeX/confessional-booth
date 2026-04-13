@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOLYFANS — Gamification UI Mockups</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0a;
+            font-family: -apple-system, BlinkMacSystemFont, 'Geist', 'Segoe UI', sans-serif;
+            color: #F5F1E8;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(255, 20, 147, 0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #8B8B8B;
+            margin-bottom: 60px;
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .mockup-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .mockup-card {
+            background: linear-gradient(135deg, #1a1424 0%, #2D1B4E 100%);
+            border: 2px solid #D4AF37;
+            border-radius: 8px;
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mockup-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 20, 147, 0.05), transparent);
+            pointer-events: none;
+        }
+
+        .mockup-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #D4AF37;
+        }
+
+        /* ====== SIN SCORE METER ====== */
+        .sin-meter-container {
+            display: flex;
+            align-items: flex-end;
+            gap: 16px;
+            height: 200px;
+        }
+
+        .sin-meter-gauge {
+            width: 40px;
+            height: 100%;
+            background: #0a0a0a;
+            border: 2px solid #D4AF37;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sin-meter-fill {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 67%;
+            background: linear-gradient(to top, #FF1493 0%, #FFA502 40%, #00D9FF 100%);
+            border-radius: 2px;
+            animation: fillAnimation 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes fillAnimation {
+            0% { height: 45%; }
+            100% { height: 75%; }
+        }
+
+        .sin-meter-labels {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            font-size: 11px;
+            color: #8B8B8B;
+        }
+
+        .sin-meter-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sin-meter-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+        .sin-meter-dot.pure { background: #00D9FF; }
+        .sin-meter-dot.tempted { background: #FFA502; }
+        .sin-meter-dot.sinful { background: #FF1493; }
+
+        .sin-meter-value {
+            margin-top: 16px;
+            font-size: 28px;
+            font-weight: 700;
+            color: #FF1493;
+            text-shadow: 0 0 10px rgba(255, 20, 147, 0.5);
+        }
+
+        /* ====== PENANCE CARDS ====== */
+        .penance-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .penance-card {
+            background: #0a0a0a;
+            border: 1px solid #D4AF37;
+            border-radius: 4px;
+            padding: 16px;
+            cursor: pointer;
+            transition: all 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+        }
+
+        .penance-card:hover {
+            border-color: #FF1493;
+            box-shadow: 0 0 15px rgba(255, 20, 147, 0.4), inset 0 0 10px rgba(255, 20, 147, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .penance-card-icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .penance-card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .penance-card-desc {
+            font-size: 12px;
+            color: #8B8B8B;
+            margin-bottom: 12px;
+        }
+
+        .penance-card-btn {
+            background: #FF1493;
+            color: #0a0a0a;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 150ms;
+        }
+
+        .penance-card-btn:hover {
+            background: #FF6EC7;
+        }
+
+        /* ====== ACHIEVEMENT BADGE ====== */
+        .achievement-showcase {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .achievement-badge {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: conic-gradient(#D4AF37 0deg, #2D1B4E 360deg);
+            padding: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: badgeUnlock 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes badgeUnlock {
+            0% {
+                transform: scale(0) rotate(0deg);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.2) rotate(180deg);
+            }
+            100% {
+                transform: scale(1) rotate(360deg);
+                opacity: 1;
+            }
+        }
+
+        .achievement-badge::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, rgba(255, 20, 147, 0.3), transparent);
+            border-radius: 50%;
+            animation: badgeGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes badgeGlow {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.1); }
+        }
+
+        .achievement-badge-inner {
+            width: 112px;
+            height: 112px;
+            background: linear-gradient(135deg, #1a1424, #2D1B4E);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            z-index: 1;
+        }
+
+        .achievement-text {
+            text-align: center;
+        }
+
+        .achievement-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #D4AF37;
+        }
+
+        .achievement-desc {
+            font-size: 12px;
+            color: #8B8B8B;
+            margin-top: 4px;
+        }
+
+        /* ====== LEVEL PROGRESSION ====== */
+        .level-section {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .level-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .level-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #D4AF37;
+        }
+
+        .level-xp {
+            font-size: 12px;
+            color: #8B8B8B;
+        }
+
+        .level-bar-container {
+            background: #0a0a0a;
+            border: 1px solid #D4AF37;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .level-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00D9FF 0%, #FF1493 100%);
+            width: 84.5%;
+            animation: levelFill 1s ease-out;
+        }
+
+        @keyframes levelFill {
+            from { width: 0; }
+            to { width: 84.5%; }
+        }
+
+        /* ====== RANK DISPLAY ====== */
+        .rank-card {
+            background: linear-gradient(135deg, #1a1424 0%, #2D1B4E 50%, #1a1424 100%);
+            border: 2px solid #D4AF37;
+            border-radius: 8px;
+            padding: 32px;
+            text-align: center;
+            transition: all 300ms;
+            max-width: 250px;
+            margin: 0 auto;
+        }
+
+        .rank-card:hover {
+            box-shadow: 0 0 20px rgba(255, 20, 147, 0.4);
+            border-color: #FF1493;
+        }
+
+        .rank-icon {
+            font-size: 64px;
+            margin-bottom: 16px;
+        }
+
+        .rank-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #D4AF37;
+        }
+
+        .rank-tier {
+            font-size: 12px;
+            color: #8B8B8B;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .rank-mini-bar {
+            background: #0a0a0a;
+            border: 1px solid #D4AF37;
+            height: 4px;
+            border-radius: 2px;
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
+
+        .rank-mini-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00D9FF, #FF1493);
+            width: 62%;
+        }
+
+        .rank-next {
+            font-size: 11px;
+            color: #8B8B8B;
+        }
+
+        /* ====== RESPONSIVE ====== */
+        @media (max-width: 768px) {
+            .mockup-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .penance-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>HOLYFANS — GAMIFICATION UI</h1>
+        <p class="subtitle">Phase 1 - Day 1 Visual Mockups</p>
+
+        <div class="mockup-grid">
+            <!-- Sin Score Meter -->
+            <div class="mockup-card">
+                <div class="mockup-title">Sin Score Meter</div>
+                <div class="sin-meter-container">
+                    <div class="sin-meter-gauge">
+                        <div class="sin-meter-fill"></div>
+                    </div>
+                    <div class="sin-meter-labels">
+                        <div class="sin-meter-label">
+                            <div class="sin-meter-dot pure"></div>
+                            Pure
+                        </div>
+                        <div class="sin-meter-label">
+                            <div class="sin-meter-dot tempted"></div>
+                            Tempted
+                        </div>
+                        <div class="sin-meter-label">
+                            <div class="sin-meter-dot sinful"></div>
+                            Sinful
+                        </div>
+                    </div>
+                </div>
+                <div class="sin-meter-value">673</div>
+            </div>
+
+            <!-- Penance Assignment -->
+            <div class="mockup-card">
+                <div class="mockup-title">Penance Options</div>
+                <div class="penance-grid">
+                    <div class="penance-card">
+                        <div class="penance-card-icon">🙏</div>
+                        <div class="penance-card-title">Meditate</div>
+                        <div class="penance-card-desc">10 min reflection</div>
+                        <button class="penance-card-btn">ACCEPT</button>
+                    </div>
+                    <div class="penance-card">
+                        <div class="penance-card-icon">📖</div>
+                        <div class="penance-card-title">Study</div>
+                        <div class="penance-card-desc">Read scripture</div>
+                        <button class="penance-card-btn">ACCEPT</button>
+                    </div>
+                    <div class="penance-card">
+                        <div class="penance-card-icon">💪</div>
+                        <div class="penance-card-title">Exercise</div>
+                        <div class="penance-card-desc">20 min workout</div>
+                        <button class="penance-card-btn">ACCEPT</button>
+                    </div>
+                    <div class="penance-card">
+                        <div class="penance-card-icon">💬</div>
+                        <div class="penance-card-title">Confess</div>
+                        <div class="penance-card-desc">Share your truth</div>
+                        <button class="penance-card-btn">ACCEPT</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Achievement Badge -->
+            <div class="mockup-card">
+                <div class="mockup-title">Achievement Unlock</div>
+                <div class="achievement-showcase">
+                    <div class="achievement-badge">
+                        <div class="achievement-badge-inner">👑</div>
+                    </div>
+                    <div class="achievement-text">
+                        <div class="achievement-name">MASTER CONFESSOR</div>
+                        <div class="achievement-desc">Reached Level 50</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Level Progression -->
+            <div class="mockup-card">
+                <div class="mockup-title">Level Progression</div>
+                <div class="level-section">
+                    <div class="level-header">
+                        <div class="level-name">Level 5</div>
+                        <div class="level-xp">845 / 1000 XP</div>
+                    </div>
+                    <div class="level-bar-container">
+                        <div class="level-bar-fill"></div>
+                    </div>
+                    <div style="font-size: 12px; color: #8B8B8B; margin-top: 8px;">
+                        Next: Level 6 (155 XP remaining)
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rank Display -->
+            <div class="mockup-card">
+                <div class="mockup-title">Rank Display</div>
+                <div class="rank-card">
+                    <div class="rank-icon">⚜️</div>
+                    <div class="rank-name">CONFESSOR</div>
+                    <div class="rank-tier">Tier: Member</div>
+                    <div class="rank-mini-bar">
+                        <div class="rank-mini-fill"></div>
+                    </div>
+                    <div class="rank-next">Next: SAINT</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Specs -->
+        <div style="background: linear-gradient(135deg, #1a1424 0%, #2D1B4E 100%); border: 2px solid #D4AF37; border-radius: 8px; padding: 32px; margin-top: 40px;">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 20px; color: #D4AF37;">Technical Specifications</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                <div>
+                    <h3 style="color: #FF1493; margin-bottom: 10px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Color Palette</h3>
+                    <ul style="font-size: 12px; color: #8B8B8B; line-height: 1.8; list-style: none;">
+                        <li>• Purple: #2D1B4E</li>
+                        <li>• Gold: #D4AF37</li>
+                        <li>• Hot Pink: #FF1493</li>
+                        <li>• Electric Blue: #00D9FF</li>
+                        <li>• Black: #0a0a0a</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="color: #FF1493; margin-bottom: 10px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Animation Specs</h3>
+                    <ul style="font-size: 12px; color: #8B8B8B; line-height: 1.8; list-style: none;">
+                        <li>• Badge unlock: 600ms scale + rotate</li>
+                        <li>• Card hover: 300ms cubic-bezier bounce</li>
+                        <li>• Bar fill: 1s ease-out</li>
+                        <li>• Glow pulse: 2s infinite</li>
+                        <li>• Transitions: 150-300ms standard</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="color: #FF1493; margin-bottom: 10px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Typography</h3>
+                    <ul style="font-size: 12px; color: #8B8B8B; line-height: 1.8; list-style: none;">
+                        <li>• Headings: Playfair Display 600-700</li>
+                        <li>• Body: Geist 400-500</li>
+                        <li>• Scale: 28px hero → 12px caption</li>
+                        <li>• Line height: 1.6 body, 1.3 headings</li>
+                        <li>• Max measure: 75 characters</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
