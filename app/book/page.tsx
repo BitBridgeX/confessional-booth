@@ -24,182 +24,237 @@ const SCRIPTURES = [
   { num: 20, title: "The Final Scripture", verse: "And Cookie Mami looked upon all she had created—the confessions, the cookies, the community—and she said: 'This is good. Now buy some merch.'" },
 ];
 
-const SERMONS = [
-  { num: 1, title: "The Sermon of the Late-Night Scroll", preview: "Brothers, sisters, and fellow sinners... we gather tonight not in a church, but in the blue light of our screens. Cookie Mami has a message for every thumb that's ever swiped when it should have slept..." },
-  { num: 2, title: "Confessions of a Recovering People-Pleaser", preview: "Today's sermon is for everyone who's ever said 'I'm fine' when they were NOT fine. Cookie Mami sees through your lies. And she has cookies for the brave ones who finally say 'actually, no'..." },
-  { num: 3, title: "The Gospel of Unapologetic Joy", preview: "Stop apologizing for being happy. Stop shrinking. Stop dimming your light because someone else can't handle the glow. Cookie Mami's church is LOUD and BRIGHT and JOYFUL..." },
-  { num: 4, title: "When God Ghosted: Finding Faith in the Silence", preview: "We've all been there. You pray and pray and... nothing. The silence feels like rejection. But Cookie Mami knows something about silence: sometimes it's the loudest answer..." },
-  { num: 5, title: "The Benediction of Self-Love", preview: "Before you love anyone else, before you serve anyone else, before you give anything else—you must first fill your own cup. And Cookie Mami's cup is full of... well, that's between her and God..." },
-];
-
-const PODCAST_SCRIPTS = [
-  "Ep 1: Welcome to the Booth — Cookie Mami introduces herself and the concept",
-  "Ep 2: Confessions Unfiltered — First batch of community confessions read live",
-  "Ep 3: The Art of the Apology — Why 'sorry' isn't enough and what to say instead",
-  "Ep 4: Sacred Boundaries — Setting limits without guilt, Cookie Mami style",
-  "Ep 5: Date Night Disasters — Listeners share their worst date stories",
-  "Ep 6: Money, Honey — Financial confessions and Cookie Mami's hot takes on spending",
-  "Ep 7: Family Secrets — The confessions we never tell our families",
-  "Ep 8: Body Talk — Accepting, celebrating, and decorating your temple",
-  "Ep 9: Internet Famous — The price of online attention and digital identity",
-  "Ep 10: Season Finale — The best confessions, biggest moments, and what's next",
-];
-
-const PROMO_SCRIPTS = [
-  { title: "Launch Trailer (60s)", desc: "Cookie Mami introduces the Confessional Booth to the world. Cinematic, provocative, unforgettable." },
-  { title: "Merch Drop Promo (30s)", desc: "Fast cuts of products, Cookie Mami's voiceover, ending with 'Shop your sins at HolyFans.'" },
-  { title: "Confession Teaser (15s)", desc: "Quick confession + Cookie Mami reaction. 'Submit yours at the Confessional Booth.'" },
-  { title: "Season 1 Recap (45s)", desc: "Highlight reel of the best moments from Season 1. Music, laughs, and Cookie Mami's greatest hits." },
+const UNHOLY_TEXTS = [
+  "are you still up?",
+  "thinking about you",
+  "what are you wearing",
+  "never mind it's fine",
+  "can we talk",
+  "i miss you",
+  "did you see my last message",
+  "just checking in",
+  "you awake",
 ];
 
 export default function BookPage() {
   return (
     <>
       <Navigation />
-      <main className="min-h-screen pt-16">
-        {/* Hero */}
-        <section className="relative py-24 px-4 overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="absolute top-0 left-1/2 w-96 h-96 bg-sacred-gold/10 rounded-full blur-3xl animate-float" />
-            <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-hot-pink/10 rounded-full blur-3xl" />
-          </div>
-          <div className="relative max-w-4xl mx-auto text-center space-y-8">
-            <div className="text-8xl animate-float"></div>
-            <h1 className="font-playfair text-5xl md:text-7xl font-black">
-              The <span className="gradient-sinful">Book of HolyFans</span>
+      <main className="min-h-screen bg-black pt-16">
+
+        {/* HERO */}
+        <section className="px-4 md:px-8 py-32">
+          <div className="max-w-4xl mx-auto text-center space-y-12">
+            <h1 className="text-4xl md:text-6xl font-thin tracking-widest">
+              The Codex
             </h1>
-            <p className="text-xl text-blush/80 max-w-2xl mx-auto">
-              The sacred digital text. 20 scriptures, 5 sermons, 3 songs, 10 podcast
-              scripts, and 4 promo video scripts. All written in Cookie Mami&apos;s voice.
+            <p className="text-base md:text-lg font-light text-off-white/70 max-w-2xl mx-auto">
+              Sacred texts. Digital scripture. The coffee table book you never knew you needed.
             </p>
-            <div className="grid grid-cols-5 gap-3 max-w-xl mx-auto">
+            
+            {/* Stats */}
+            <div className="grid grid-cols-4 gap-4 max-w-2xl mx-auto">
               {[
                 { n: "20", l: "Scriptures" },
-                { n: "5", l: "Sermons" },
-                { n: "3", l: "Songs" },
-                { n: "10", l: "Scripts" },
-                { n: "4", l: "Promos" },
-              ].map((s) => (
-                <div key={s.l} className="sin-card !p-3 text-center">
-                  <div className="font-playfair text-2xl gradient-gold">{s.n}</div>
-                  <div className="text-[10px] text-blush/50">{s.l}</div>
+                { n: "100+", l: "Pages" },
+                { n: "2", l: "Formats" },
+                { n: "$24.99", l: "Price" },
+              ].map((item) => (
+                <div key={item.l} className="sin-card space-y-2">
+                  <div className="font-light text-2xl text-gold">{item.n}</div>
+                  <div className="text-xs font-light text-off-white/50">{item.l}</div>
                 </div>
               ))}
             </div>
-            <Link href="/merch?category=digital-products" className="btn-sin-gold inline-block text-lg">
-              Get the Full Book — $14.99
-            </Link>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col md:flex-row gap-4 justify-center pt-8">
+              <Link href="/merch?category=digital-products" className="btn-sin-primary">
+                Digital PDF
+              </Link>
+              <Link href="/merch?category=physical" className="btn-sin-secondary">
+                Physical Edition
+              </Link>
+            </div>
           </div>
         </section>
 
-        <div className="divider-sin max-w-4xl mx-auto" />
+        {/* Divider */}
+        <div className="h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
-        {/* ═══ 20 SCRIPTURES ═══ */}
-        <section className="max-w-4xl mx-auto py-16 px-4">
-          <h2 className="font-playfair text-4xl text-center mb-12">
-            <span className="gradient-gold">The 20 Scriptures</span>
-          </h2>
-          <div className="space-y-4">
-            {SCRIPTURES.map((s) => (
-              <div key={s.num} className="sin-card">
-                <div className="flex items-start gap-4">
-                  <span className="font-playfair text-3xl gradient-gold flex-shrink-0 w-12 text-right">
-                    {s.num}.
-                  </span>
-                  <div>
-                    <h3 className="font-playfair text-lg text-hot-pink mb-2">{s.title}</h3>
-                    <p className="text-blush/70 font-handwritten text-lg leading-relaxed italic">
-                      &ldquo;{s.verse}&rdquo;
+        {/* UNHOLY TEXTS */}
+        <section className="px-4 md:px-8 py-32">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-light tracking-wide text-center mb-16">
+              The Unholy Texts
+            </h2>
+            <p className="text-center text-sm font-light text-off-white/60 mb-12 max-w-xl mx-auto">
+              Messages we've all sent at 3am. Words we regret. Confessions disguised as questions.
+            </p>
+
+            {/* Text message bubbles */}
+            <div className="space-y-4 max-w-xl mx-auto">
+              {UNHOLY_TEXTS.map((text, i) => (
+                <div key={i} className="flex justify-end">
+                  <div className="bg-gold/10 border border-gold/30 rounded-3xl px-6 py-3 max-w-xs text-right">
+                    <p className="text-sm font-light text-off-white/80">
+                      {text}
                     </p>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+
+            <div className="text-center mt-16 space-y-4">
+              <p className="text-sm font-light text-gold tracking-widest">
+                BLESSED ARE THE LURKERS
+              </p>
+              <p className="text-xs font-light text-off-white/50">
+                Those who read. Those who watch. Those who never respond but always know.
+              </p>
+            </div>
           </div>
         </section>
 
-        <div className="divider-sin max-w-4xl mx-auto" />
+        {/* Divider */}
+        <div className="h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
-        {/* ═══ 5 SERMONS ═══ */}
-        <section className="max-w-4xl mx-auto py-16 px-4">
-          <h2 className="font-playfair text-4xl text-center mb-12">
-            <span className="gradient-pink">5 Digital Sermons</span>
-          </h2>
-          <div className="space-y-6">
-            {SERMONS.map((s) => (
-              <div key={s.num} className="sin-card">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-3xl"></span>
-                  <div>
-                    <span className="text-xs text-sacred-gold">Sermon #{s.num}</span>
-                    <h3 className="font-playfair text-xl">{s.title}</h3>
+        {/* THE 20 SCRIPTURES */}
+        <section className="px-4 md:px-8 py-32">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-light tracking-wide text-center mb-16">
+              20 Sacred Scriptures
+            </h2>
+            <div className="space-y-6">
+              {SCRIPTURES.map((scripture) => (
+                <div key={scripture.num} className="sin-card">
+                  <div className="flex gap-6">
+                    <div className="flex-shrink-0">
+                      <span className="text-3xl font-light text-gold">
+                        {String(scripture.num).padStart(2, '0')}
+                      </span>
+                    </div>
+                    <div className="flex-1 space-y-2">
+                      <h3 className="text-lg font-light tracking-wide">
+                        {scripture.title}
+                      </h3>
+                      <p className="text-sm font-light text-off-white/60 italic leading-relaxed">
+                        "{scripture.verse}"
+                      </p>
+                    </div>
                   </div>
                 </div>
-                <p className="text-blush/70 italic">{s.preview}</p>
-                <p className="text-xs text-hot-pink mt-3">
-                  Full sermon available in the Book of HolyFans →
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </section>
 
-        <div className="divider-sin max-w-4xl mx-auto" />
+        {/* Divider */}
+        <div className="h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
-        {/* ═══ 10 PODCAST SCRIPTS ═══ */}
-        <section className="max-w-4xl mx-auto py-16 px-4">
-          <h2 className="font-playfair text-4xl text-center mb-12">
-            <span className="gradient-pink">10 Podcast Episode Scripts</span>
-          </h2>
-          <div className="grid md:grid-cols-2 gap-4">
-            {PODCAST_SCRIPTS.map((script, i) => (
-              <div key={i} className="sin-card flex items-start gap-3">
-                <span className="text-2xl"></span>
-                <p className="text-sm text-blush/70">{script}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <div className="divider-sin max-w-4xl mx-auto" />
-
-        {/* ═══ 4 PROMO SCRIPTS ═══ */}
-        <section className="max-w-4xl mx-auto py-16 px-4">
-          <h2 className="font-playfair text-4xl text-center mb-12">
-            <span className="gradient-gold">4 Promo Video Scripts</span>
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {PROMO_SCRIPTS.map((s, i) => (
-              <div key={i} className="sin-card">
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="text-3xl"></span>
-                  <h3 className="font-playfair text-lg">{s.title}</h3>
-                </div>
-                <p className="text-sm text-blush/60">{s.desc}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <div className="divider-sin max-w-4xl mx-auto" />
-
-        {/* Final CTA */}
-        <section className="py-24 px-4">
-          <div className="max-w-3xl mx-auto text-center space-y-8">
-            <h2 className="font-playfair text-4xl">
-              Get the <span className="gradient-sinful">Complete Book</span>
+        {/* FORMATS */}
+        <section className="px-4 md:px-8 py-32">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-light tracking-wide text-center mb-16">
+              Two Sacred Formats
             </h2>
-            <p className="text-lg text-blush/80">
-              All 20 scriptures, 5 sermons, 3 songs with lyrics, 10 podcast scripts,
-              and 4 promo video scripts. Delivered as a beautiful digital PDF.
-            </p>
-            <div className="font-playfair text-5xl gradient-gold">$14.99</div>
-            <Link href="/merch?category=digital-products" className="btn-sin-gold inline-block text-lg">
-              Buy the Book of HolyFans 
-            </Link>
-            <p className="text-xs text-blush/30">Instant digital delivery. No refunds (it's a sin to return scripture).</p>
+            
+            <div className="grid md:grid-cols-2 gap-12">
+              {/* Digital */}
+              <div className="sin-card space-y-6">
+                <h3 className="text-2xl font-light tracking-wide">
+                  Digital Download
+                </h3>
+                <ul className="space-y-3 text-sm font-light text-off-white/70">
+                  <li>— 100+ page PDF</li>
+                  <li>— All 20 scriptures</li>
+                  <li>— High-resolution images</li>
+                  <li>— Searchable text</li>
+                  <li>— Instant access</li>
+                </ul>
+                <p className="text-2xl font-light text-gold">$14.99</p>
+                <Link href="/merch?category=digital-products" className="btn-sin-primary">
+                  Download Now
+                </Link>
+              </div>
+
+              {/* Physical */}
+              <div className="sin-card space-y-6">
+                <h3 className="text-2xl font-light tracking-wide">
+                  Coffee Table Edition
+                </h3>
+                <ul className="space-y-3 text-sm font-light text-off-white/70">
+                  <li>— 200+ pages, hardcover</li>
+                  <li>— Premium paper stock</li>
+                  <li>— Art throughout</li>
+                  <li>— Gold foil details</li>
+                  <li>— Limited edition (1000 copies)</li>
+                </ul>
+                <p className="text-2xl font-light text-gold">$49.99</p>
+                <Link href="/merch?category=physical" className="btn-sin-primary">
+                  Order Print
+                </Link>
+              </div>
+            </div>
           </div>
         </section>
+
+        {/* Divider */}
+        <div className="h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+
+        {/* KINKY RITUAL SYSTEM */}
+        <section className="px-4 md:px-8 py-32">
+          <div className="max-w-4xl mx-auto text-center space-y-12">
+            <h2 className="text-3xl font-light tracking-wide">
+              A Kinky Branded Ritual System
+            </h2>
+            
+            <p className="text-sm font-light text-off-white/60 max-w-2xl mx-auto">
+              The Codex is not just a book. It is a ritual object. Use it as instructed. Read daily. Meditate on scripture. Share verses with those who need to confess.
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-8 py-8">
+              {[
+                {
+                  title: "Ritual I",
+                  desc: "Read one scripture daily. Let it guide your confessions. Speak its truth into your world."
+                },
+                {
+                  title: "Ritual II",
+                  desc: "Share verses with friends who need them. The Codex spreads through intimate acts of truth."
+                },
+                {
+                  title: "Ritual III",
+                  desc: "Keep the physical edition on your table. Let guests ask questions. Start conversations about sacred pleasure."
+                }
+              ].map((ritual, i) => (
+                <div key={i} className="space-y-3">
+                  <p className="text-xs font-light tracking-widest text-gold">
+                    {ritual.title}
+                  </p>
+                  <p className="text-sm font-light text-off-white/60">
+                    {ritual.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="pt-8 border-t border-gold/20 space-y-6">
+              <p className="text-lg font-light">
+                Ready to join the ritual?
+              </p>
+              <div className="flex flex-col md:flex-row gap-4 justify-center">
+                <Link href="/merch?category=digital-products" className="btn-sin-primary">
+                  Digital Codex
+                </Link>
+                <Link href="/merch?category=physical" className="btn-sin-secondary">
+                  Physical Codex
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
       </main>
     </>
   );
